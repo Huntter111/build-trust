@@ -1,0 +1,107 @@
+.header {
+	background: #181616;
+	padding-top: toRem(14.5);
+	padding-bottom: toRem(14.5);
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@include adaptiveValue('gap', 30, 15, 0, 1440, 768);
+		@media (max-width: $mobile) {
+			align-items: baseline;
+		}
+	}
+
+	&__logo {
+		position: relative;
+		z-index: 5;
+		img {
+			@include adaptiveValue('width', 187, 100, 0, 1440, 768);
+			@media (max-width: $mobile) {
+				width: toRem(130);
+			}
+		}
+	}
+
+	&__menu {
+	}
+
+	&__action {
+	}
+}
+.menu {
+	&__icon {
+	}
+
+	&__body {
+	}
+
+	&__list {
+	}
+
+	&__item {
+	}
+
+	&__link {
+	}
+
+	&__arrow {
+	}
+}
+.icon-menu {
+}
+.arrow {
+}
+.sub-menu {
+	&__list {
+	}
+
+	&__item {
+	}
+
+	&__link {
+	}
+}
+.action-header {
+	color: #eaedef;
+	display: flex;
+	flex-direction: column;
+	row-gap: toRem(8);
+	@media (max-width: $mobile) {
+		align-items: center;
+		row-gap: toRem(25);
+	}
+	@include adaptiveValue('font-size', 18, 14, 0, 1440, 768);
+	line-height: 1.6;
+	@media (max-width: $mobile) {
+		font-size: toRem(18);
+	}
+	&--tablet {
+		display: none;
+		@media (max-width: $mobile) {
+			display: flex;
+		}
+	}
+	&--pc {
+		display: flex;
+		@media (max-width: $mobile) {
+			display: none;
+		}
+	}
+	&__phone {
+		@media (any-hover: hover) {
+			transition: all 0.3s;
+			&:hover {
+				color: #ff4800;
+			}
+		}
+	}
+	&__location {
+		@media (any-hover: hover) {
+			transition: all 0.3s;
+			&:hover {
+				color: #ff4800;
+			}
+		}
+	}
+}

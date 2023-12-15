@@ -3,12 +3,61 @@
 
 .button {
 	display: inline-flex;
-	padding: 0px 0px;
+	justify-content: center;
+	align-items: center;
+	padding: toRem(13) toRem(30) toRem(14) toRem(30);
+	min-height: toRem(56);
+	background: #194745;
+	color: #eaedef;
+	max-width: toRem(360);
+	@include adaptiveValue('font-size', 18, 16);
+	transition: all 0.3s;
+	line-height: 1.6;
 	@media (any-hover: hover) {
 		&:hover {
+			background: #17302f;
 		}
 	}
 	&--fw {
 		width: 100%;
+	}
+}
+.button-border {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: toRem(16);
+	min-height: toRem(56);
+	max-height: toRem(56);
+	padding: toRem(17) toRem(30) toRem(17) toRem(30);
+	border: toRem(1) solid #ff4800;
+	color: #eaedef;
+	font-family: 'Inter';
+	transition: all 0.3s;
+	// @include adaptiveValue('font-size', 18, 16);
+	font-weight: 400;
+	@media (any-hover: hover) {
+		&:hover {
+			background: #de5e2c;
+		}
+	}
+}
+.button-bg {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	min-height: toRem(56);
+	padding: toRem(12) toRem(30) toRem(13) toRem(30);
+	color: #eaedef;
+	font-size: toRem(18);
+	line-height: 1.6; /* 28.8px */
+	background: #de5e2c;
+	border: toRem(1) solid transparent;
+	transition: all 0.3s;
+	@media (any-hover: hover) {
+		&:hover {
+			background: transparent;
+			border: toRem(1) solid #ff4800;
+		}
 	}
 }
