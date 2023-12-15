@@ -1,1 +1,20 @@
 // Заголовки, загальні БЕМ блоки та інше...
+// !
+.social-media {
+	&__link {
+		svg {
+			fill: #eaedef;
+			width: toRem(32);
+			height: toRem(32);
+			border: toRem(1) solid #eaedef;
+			border-radius: 50%;
+			transition: all 0.3s;
+			@media (any-hover: hover) {
+				&:hover {
+					fill: #ff4800;
+					border: toRem(1) solid #ff4800;
+				}
+			}
+		}
+	}
+}

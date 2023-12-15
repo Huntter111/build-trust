@@ -4,7 +4,6 @@
 	}
 	// .menu__body
 	&__body {
-		color: #eaedef;
 		@media (max-width: $mobile) {
 			position: fixed;
 			width: 100%;
@@ -184,7 +183,7 @@
 	@include adaptiveValue('font-size', 18, 14, 0, 1440, 768);
 	transition: all 0.3s;
 	text-decoration: none;
-	color: #eaedef;
+
 	@media (max-width: $mobile) {
 		font-size: toRem(18);
 	}
