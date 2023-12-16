@@ -18,3 +18,9 @@
 		}
 	}
 }
+.title {
+	@include adaptiveValue('font-size', 48, 36);
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}

@@ -21,6 +21,9 @@
 	&--fw {
 		width: 100%;
 	}
+	&:active {
+		transform: scale(0.98);
+	}
 }
 .button-border {
 	display: inline-flex;
@@ -40,6 +43,9 @@
 		&:hover {
 			background: #de5e2c;
 		}
+	}
+	&:active {
+		transform: scale(0.98);
 	}
 }
 .button-bg {
@@ -64,5 +70,8 @@
 				transform: translateX(toRem(10));
 			}
 		}
+	}
+	&:active {
+		transform: scale(0.98);
 	}
 }
