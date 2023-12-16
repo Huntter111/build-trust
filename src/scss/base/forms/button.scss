@@ -54,10 +54,15 @@
 	background: #de5e2c;
 	border: toRem(1) solid transparent;
 	transition: all 0.3s;
+	gap: toRem(16);
 	@media (any-hover: hover) {
 		&:hover {
 			background: transparent;
 			border: toRem(1) solid #ff4800;
+			transition: all 0.3s;
+			svg {
+				transform: translateX(toRem(10));
+			}
 		}
 	}
 }

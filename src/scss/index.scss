@@ -1,4 +1,91 @@
 //====================================================================================================
+// ! MAIN_PAGE
+.main-page {
+	background:
+		linear-gradient(0deg, rgba(28, 28, 28, 0.4) 0%, rgba(28, 28, 28, 0.4) 100%),
+		url('@img/main/background.jpg') 0 0 / cover no-repeat;
+	// background:
+	// 	linear-gradient(0deg, rgba(28, 28, 28, 0.4) 0%, rgba(28, 28, 28, 0.4) 100%),
+	// 	url('@img/main/background.jpg'),
+	// 	50% / cover no-repeat;
+	&__container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@media (min-width: $tablet) {
+			height: 89vh;
+		}
+	}
+
+	&__headline {
+		padding-top: toRem(200);
+		padding-bottom: toRem(100);
+		@media (max-width: $mobile) {
+			padding-top: toRem(150);
+		}
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: toRem(24);
+	}
+
+	&__title {
+	}
+
+	&__image {
+		aspect-ratio: 281 / 77;
+		max-width: toRem(562);
+	}
+
+	&__sub-title {
+		font-size: toRem(18);
+		line-height: 1.6;
+		max-width: toRem(400);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 24, 12, 0, 991, 479);
+		}
+	}
+
+	&__button {
+		@media (min-width: $mobile) {
+			min-width: toRem(362);
+		}
+		svg {
+			transition: all 0.3s;
+			width: toRem(30);
+			height: toRem(30);
+			fill: #eaedef;
+			stroke-width: 1px;
+		}
+		@media (max-width: $mobile) {
+			width: 100%;
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(32);
+		}
+	}
+
+	&__social-media {
+		display: flex;
+		@media (min-width: $tablet) {
+			flex-direction: column;
+		}
+		gap: toRem(16);
+		position: absolute;
+
+		@media (min-width: $tablet) {
+			right: percent(139, $maxWidthContainer);
+		}
+		@media (max-width: $tablet) {
+			position: relative;
+		}
+	}
+}
+.social-media {
+	&__link {
+	}
+}
 
 //====================================================================================================
 // ! PROS
@@ -11,17 +98,12 @@
 	&__items {
 		@include adaptiveValue('padding-right', 120, 0, 0, 1440, 991);
 		@include adaptiveValue('padding-left', 120, 0, 0, 1440, 991);
-		// display: flex;
-		// // padding: 120px 135px 120px 135px;
-		// padding: 120px 0 120px 0;
-		// justify-content: center;
-		// align-items: center;
 		display: grid;
 		@media (min-width: $mobileSmall) {
 			grid-template-columns: repeat(2, 1fr);
 			@include adaptiveValue('column-gap', 40, 20);
-			row-gap: toRem(40);
 		}
+		row-gap: toRem(40);
 		@media (min-width: $tablet) {
 			grid-template-columns: repeat(4, minmax(toRem(150), toRem(210)));
 			@include adaptiveValue('column-gap', 110, 30, 0, 1440, 991);
