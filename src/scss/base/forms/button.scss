@@ -71,6 +71,36 @@
 			}
 		}
 	}
+	svg {
+		transition: all 0.3s;
+		width: toRem(30);
+		height: toRem(30);
+		fill: #eaedef;
+		stroke-width: toRem(1);
+	}
+	&:active {
+		transform: scale(0.98);
+	}
+}
+.button-circle {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: toRem(56);
+	width: toRem(56);
+	background: #de5e2c;
+	transition: all 0.3s;
+	border-radius: 50%;
+	svg {
+		width: toRem(30);
+		height: toRem(30);
+		fill: #eaedef;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			background: #ff4800;
+		}
+	}
 	&:active {
 		transform: scale(0.98);
 	}

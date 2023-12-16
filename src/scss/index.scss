@@ -51,13 +51,7 @@
 		@media (min-width: $mobile) {
 			min-width: toRem(362);
 		}
-		svg {
-			transition: all 0.3s;
-			width: toRem(30);
-			height: toRem(30);
-			fill: #eaedef;
-			stroke-width: 1px;
-		}
+
 		@media (max-width: $mobile) {
 			width: 100%;
 		}
@@ -227,8 +221,8 @@
 }
 .counters-about-us {
 	display: flex;
-	// @include adaptiveValue('column-gap', 56, 40, 0, 1440, 991);
-	column-gap: toRem(56);
+	@include adaptiveValue('column-gap', 56, 20, 0, 479, 320);
+	// column-gap: toRem(56);
 	&__item {
 		display: flex;
 		flex-direction: column;
@@ -319,6 +313,147 @@
 }
 
 //====================================================================================================
+// ! SERVICES
+.services {
+	@include adaptiveValue('padding-top', 120, 80);
+	@include adaptiveValue('padding-bottom', 120, 80);
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		@include adaptiveValue('row-gap', 56, 30);
+	}
+
+	&__title {
+		text-align: center;
+	}
+
+	&__cards {
+		display: grid;
+
+		@media (max-width: em(600)) {
+			grid-template-columns: 1fr;
+			justify-items: center;
+		}
+		@media (min-width: em(600)) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (min-width: $tablet) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		column-gap: toRem(30);
+		@include adaptiveValue('row-gap', 56, 30, 0, 1440, 768);
+	}
+	&__button {
+		@media (min-width: $mobileSmall) {
+			min-width: toRem(362);
+		}
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+		}
+	}
+}
+.cards-services {
+	&__image {
+		overflow: hidden;
+		@media (max-width: em(600)) {
+			&:nth-child(4n) {
+				order: 2;
+			}
+			&:nth-child(5n) {
+				order: 1;
+			}
+		}
+	}
+	&__wrapper {
+		max-width: toRem(450);
+		max-height: toRem(618);
+
+		position: relative;
+		transition: all 1s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
+		&--bg-20 {
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+		}
+		&--bg-40 {
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+			}
+		}
+	}
+	&__cards-services__ibg {
+	}
+}
+
+.card-service {
+	border: toRem(1) solid #eaedef;
+	position: relative;
+
+	@include adaptiveValue('padding-top', 41, 20, 0, 1440, 768);
+	@include adaptiveValue('padding-bottom', 41, 20, 0, 1440, 768);
+	@include adaptiveValue('padding-right', 24, 14, 0, 1440, 991);
+	@include adaptiveValue('padding-left', 24, 14, 0, 1440, 991);
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: toRem(126);
+		@media (max-width: em(1100)) {
+			top: toRem(100);
+		}
+		@media (max-width: $tablet) {
+			top: toRem(80);
+		}
+		@media (max-width: $mobile) {
+			top: toRem(80);
+		}
+		left: 0;
+		width: 100%;
+		height: toRem(1);
+		background: #eaedef;
+	}
+	&__title {
+		@include adaptiveValue('font-size', 18, 16, 0, 1440, 991);
+		font-weight: 700;
+		line-height: 1.5;
+		text-transform: uppercase;
+		max-width: toRem(292);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 95, 30, 0, 1400, 768);
+		}
+	}
+
+	&__description {
+		@include adaptiveValue('font-size', 18, 14, 0, 1440, 768);
+		font-weight: 400;
+		line-height: 1.6;
+		&:not(:last-child) {
+			margin-bottom: toRem(24);
+		}
+	}
+
+	&__button {
+	}
+}
+
+//====================================================================================================
+//====================================================================================================
 // ! PARTNERS
 .partners {
 	background: #181616;
@@ -336,14 +471,6 @@
 	}
 
 	&__items {
-		// display: flex;
-		// align-items: center;
-		// @media (min-width: $tablet) {
-		// 	justify-content: center;
-		// }
-		// @media (max-width: $tablet) {
-		// 	justify-content: space-evenly;
-		// }
 		display: grid;
 		@media (min-width: $mobile) {
 			grid-template-columns: repeat(2, minmax(toRem(280), toRem(338)));
