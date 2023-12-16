@@ -4,7 +4,33 @@
 	<body>
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
-			<main class="page"></main>
+			<main class="page">
+				<div class="pros">
+					<div class="pros__container">
+						<div class="pros__items">
+							<div class="pros__item">
+								<div class="pros__image-ibg"><img src="@img/pros/icon_01.svg" alt="icon" /></div>
+								<!-- <img class="pros__image ibg" src="@img/pros/icon_01.svg" alt="Image" /> -->
+								<p class="pros__description">
+									Маємо великий досвід будівництва в гірській місцевосці, в складних геологічних умовах
+								</p>
+							</div>
+							<div class="pros__item">
+								<div class="pros__image-ibg"><img src="@img/pros/icon_02.svg" alt="icon" /></div>
+								<p class="pros__description">Маємо власний автопарк будівельної техніки</p>
+							</div>
+							<div class="pros__item">
+								<div class="pros__image-ibg"><img src="@img/pros/icon_03.svg" alt="icon" /></div>
+								<p class="pros__description">Знаємо, як оптимізувати витрати замовника при будівництві</p>
+							</div>
+							<div class="pros__item">
+								<div class="pros__image-ibg"><img src="@img/pros/icon_04.svg" alt="icon" /></div>
+								<p class="pros__description">Логістика по всій Україні</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
 			@@include('html/_footer.htm',{})
 		</div>
 		@@include('html/_js.htm',{})

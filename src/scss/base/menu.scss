@@ -144,8 +144,7 @@
 	border: toRem(0.5) solid #de5e2c;
 	background: #eaedef;
 	color: #181616;
-	font-size: toRem(14);
-	line-height: 1.5; /* 21px */
+
 	min-width: toRem(240);
 	@media (max-width: $mobile) {
 		left: -70px;
@@ -156,6 +155,11 @@
 }
 .sub-menu__link {
 	transition: all 0.15s;
+	font-size: toRem(14);
+	line-height: 1.5; /* 21px */
+	@media (max-width: $mobile) {
+		font-size: toRem(16);
+	}
 	@media (any-hover: hover) {
 		&:hover {
 			color: #ff4800;
@@ -183,9 +187,10 @@
 	@include adaptiveValue('font-size', 18, 14, 0, 1440, 768);
 	transition: all 0.3s;
 	text-decoration: none;
+	line-height: 1.6;
 
 	@media (max-width: $mobile) {
-		font-size: toRem(18);
+		font-size: toRem(22);
 	}
 }
 .menu__link:hover {
