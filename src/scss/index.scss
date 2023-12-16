@@ -88,6 +88,175 @@
 }
 
 //====================================================================================================
+// ! ABOUT_US
+
+.about-us {
+	@include adaptiveValue('padding-top', 120, 80);
+	@include adaptiveValue('padding-bottom', 120, 80);
+	&__container {
+		@include adaptiveValue('padding-top', 120, 80);
+		@include adaptiveValue('padding-bottom', 120, 80);
+	}
+
+	&__body {
+		display: flex;
+		@media (min-width: $pc) {
+			justify-content: space-around;
+		}
+		justify-content: space-between;
+		gap: toRem(26);
+		@media (max-width: $tablet) {
+			flex-direction: column;
+		}
+		@media (max-width: $mobileSmall) {
+			row-gap: toRem(50);
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(24);
+		flex: 0 1 percent(447, $maxWidthContainer);
+	}
+
+	&__title {
+		color: #eaedef;
+		@include adaptiveValue('font-size', 48, 36);
+		font-weight: 700;
+	}
+
+	&__description {
+		color: #eaedef;
+		@include adaptiveValue('font-size', 18, 16, 0, 768, 479);
+		line-height: 1.6; /* 28.8px */
+		&:not(:last-child) {
+			margin-bottom: toRem(12);
+		}
+	}
+
+	&__counters {
+	}
+	&__images {
+		flex: 0 1 percent(716, $maxWidthContainer);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: toRem(30);
+
+		@media (max-width: $mobileSmall) {
+			gap: toRem(15);
+		}
+	}
+	&__image-ibg {
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
+		// &:nth-child(1) img {
+		// 	/* Стилі для першого зображення */
+		// 	aspect-ratio: 183 / 650;
+		// }
+		// &:nth-child(2) img {
+		// 	/* Стилі для першого зображення */
+		// 	aspect-ratio: 183 / 650;
+		// }
+		// &:nth-child(3) img {
+		// 	/* Стилі для першого зображення */
+		// 	aspect-ratio: 183 / 650;
+		// }
+		// &:nth-child(4) img {
+		// 	/* Стилі для першого зображення */
+		// 	aspect-ratio: 183 / 650;
+		// }
+		&:nth-child(1) {
+			justify-self: end;
+			max-width: toRem(210);
+			max-height: toRem(243);
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+			}
+			@media (max-width: $mobileSmall) {
+				order: 1;
+			}
+		}
+		&:nth-child(2) {
+			align-self: end;
+			max-width: toRem(331);
+			max-height: toRem(200);
+			// aspect-ratio: 331 / 200;
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+			}
+		}
+		&:nth-child(3) {
+			justify-self: end;
+			max-width: toRem(331);
+			max-height: toRem(200);
+			// aspect-ratio: 331 / 200;
+			@media (max-width: $mobileSmall) {
+				order: -1;
+			}
+
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+		}
+		&:nth-child(4) {
+			@media (min-width: $tablet) {
+				margin-left: toRem(12);
+			}
+			max-width: toRem(210);
+			max-height: toRem(247);
+			// aspect-ratio: 210 / 247;
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+		}
+	}
+}
+.counters-about-us {
+	display: flex;
+	@include adaptiveValue('column-gap', 56, 10, 0, 1440, 991);
+	&__item {
+		display: flex;
+		flex-direction: column;
+		max-width: toRem(122);
+		row-gap: toRem(10);
+	}
+
+	&__value {
+		color: #de5e2c;
+		@include adaptiveValue('font-size', 48, 36);
+		font-weight: 700;
+		&::after {
+			content: '+';
+			margin-left: toRem(1);
+		}
+	}
+	&__text {
+		@include adaptiveValue('font-size', 18, 16, 0, 768, 479);
+		line-height: 1.6;
+	}
+}
+.counters {
+	&__item {
+	}
+}
+.some-block {
+	&__image {
+	}
+}
+
+//====================================================================================================
+//====================================================================================================
+//====================================================================================================
 // ! PROS
 .pros {
 	@include adaptiveValue('padding-top', 120, 80);
@@ -96,21 +265,22 @@
 	&__container {
 	}
 	&__items {
-		@include adaptiveValue('padding-right', 120, 0, 0, 1440, 991);
-		@include adaptiveValue('padding-left', 120, 0, 0, 1440, 991);
+		// @include adaptiveValue('padding-right', 120, 0, 0, 1440, 991);
+		// @include adaptiveValue('padding-left', 120, 0, 0, 1440, 991);
 		display: grid;
+		justify-content: center;
 		@media (min-width: $mobileSmall) {
 			grid-template-columns: repeat(2, 1fr);
 			@include adaptiveValue('column-gap', 40, 20);
 		}
 		row-gap: toRem(40);
 		@media (min-width: $tablet) {
-			grid-template-columns: repeat(4, minmax(toRem(150), toRem(210)));
+			grid-template-columns: repeat(4, minmax(toRem(150), toRem(250)));
 			@include adaptiveValue('column-gap', 110, 30, 0, 1440, 991);
 		}
 
 		justify-items: center;
-		justify-content: space-between;
+		// justify-content: space-between;
 	}
 
 	&__item {
