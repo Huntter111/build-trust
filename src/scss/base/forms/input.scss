@@ -1,22 +1,36 @@
 //<INPUT>
 // Сніппет (HTML): inp
-input[type="text"],
-input[type="email"],
-input[type="tel"],
+input[type='text'],
+input[type='email'],
+input[type='tel'],
 textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
+
 .input {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
-	padding: 0px 20px;
-	border: 1px solid #eee;
+	padding: toRem(13) toRem(14) toRem(12) toRem(14);
+	border: toRem(1) solid #eaedef;
+	background-color: transparent;
+	outline: none;
+	color: #eaedef;
+	&:focus-visible {
+		outline: none;
+		// border-radius: 0 !important;
+	}
+	// &:disabled {
+	// 	background-color: dimgrey;
+	// 	color: linen;
+	// 	opacity: 1;
+	// }
 	&._form-focus {
 	}
 	&._form-error {
+		border: toRem(1) solid #de2c2c;
 	}
 }
 .input[placeholder]:not([data-placeholder-nohiden]) {
@@ -30,5 +44,5 @@ textarea {
 
 textarea.input {
 	resize: none;
-	padding: 0px 0px;
+	padding: toRem(13) toRem(14) toRem(12) toRem(14);
 }

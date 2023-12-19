@@ -2,6 +2,7 @@
 	background: #181616;
 	padding-top: toRem(14.5);
 	padding-bottom: toRem(14.5);
+
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -14,7 +15,7 @@
 		align-items: center;
 		@include adaptiveValue('gap', 30, 15, 0, 1440, 768);
 		@media (max-width: $mobile) {
-			align-items: baseline;
+			// align-items: baseline;
 		}
 	}
 
@@ -24,7 +25,7 @@
 		img {
 			@include adaptiveValue('width', 187, 100, 0, 1440, 768);
 			@media (max-width: $mobile) {
-				width: toRem(130);
+				width: toRem(150);
 			}
 		}
 	}

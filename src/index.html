@@ -332,11 +332,6 @@
 									</a>
 								</div>
 							</div>
-							<!-- Якщо потрібна навігація (ліворуч/праворуч) -->
-							<!-- <div class="project__buttons project__buttons--max-tablet">
-								<button type="button" class="swiper-button-prev project__swiper-button-prev"></button>
-								<button type="button" class="swiper-button-next project__swiper-button-next"></button>
-							</div> -->
 						</div>
 						<div class="project__buttons project__buttons--min-tablet">
 							<button type="button" class="swiper-button-prev project__swiper-button-prev"></button>
@@ -373,6 +368,80 @@
 									будівництвом.
 								</p>
 								<p class="partner__text">Засновник “Ama Family Resort” — готельного комплексу в Буковелі.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="contact">
+					<div class="contact__container">
+						<div class="contact__headline">
+							<h2 class="contact__title title">Зв’яжіться з нами</h2>
+							<div class="contact__sub-title">ми будемо раді вам допомогти в реалізації ваших ідей</div>
+						</div>
+						<div class="contact__items contact-item">
+							<div class="contact-item__contacts">
+								<h3 class="contact-item__title">Контакти</h3>
+								<a href="tel:+380996858659" class="contact-item__phone">+380 (99) 685 86 59</a>
+								<a href="https://maps.app.goo.gl/85DofnziogMjvHXY9" class="contact-item__location"
+									>м. Дніпро, вул. Центральна,1А</a
+								>
+								<div class="contact-item__social-media social-media">
+									<a href="#" class="social-media__link"
+										><svg>
+											<use xlink:href="@img/icons/icons.svg#facebook"></use></svg
+									></a>
+									<a href="#" class="social-media__link"
+										><svg>
+											<use xlink:href="@img/icons/icons.svg#instagram"></use></svg
+									></a>
+								</div>
+							</div>
+							<div class="contact-item__form">
+								<form class="form" action="files/sendmail/sendmail.php" method="POST">
+									<div class="form__column">
+										<div class="form__row">
+											<label class="form__label" for="name">Ваше ім’я*</label>
+											<input
+												data-validate="name"
+												autocomplete="off"
+												type="text"
+												name="name"
+												class="input form__input"
+												required
+											/>
+										</div>
+										<div class="form__row">
+											<label class="form__label" for="phoneInput">Номер телефону*</label>
+											<input
+												data-validate="phone"
+												autocomplete="off"
+												type="tel"
+												name="phone"
+												class="input form__input"
+												required
+												id="phoneInput"
+											/>
+										</div>
+										<div class="form__row">
+											<label class="form__label" for="cheese">Email*</label>
+											<input
+												type="text"
+												name="email"
+												class="input form__input"
+												data-required="email"
+												required
+												data-validate="email"
+											/>
+										</div>
+									</div>
+									<div class="form__column">
+										<div class="form__row">
+											<label class="form__label" for="text">Коментар</label>
+											<textarea class="form__textarea input" name="message" id=""></textarea>
+										</div>
+									</div>
+									<button type="submit" class="button-bg form__button">Відправити</button>
+								</form>
 							</div>
 						</div>
 					</div>

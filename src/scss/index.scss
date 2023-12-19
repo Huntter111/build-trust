@@ -709,8 +709,11 @@
 		@media (min-width: $mobile) {
 			grid-template-columns: repeat(2, minmax(toRem(280), toRem(338)));
 		}
+		@media (max-width: $mobile) {
+			@include adaptiveValue('row-gap', 70, 50, 0, 767, 479);
+		}
 		grid-template-columns: minmax(toRem(280), toRem(388));
-		@include adaptiveValue('column-gap', 215, 60, 0, 1449, 768);
+		@include adaptiveValue('column-gap', 215, 60, 0, 1440, 768);
 	}
 
 	&__item {
@@ -768,6 +771,141 @@
 }
 
 //====================================================================================================
+// ! CONTACTS
+.contact {
+	background: #17302f;
+	@include adaptiveValue('padding-top', 120, 50);
+	@include adaptiveValue('padding-bottom', 120, 50);
+	&__container {
+	}
+
+	&__headline {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(16);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 64, 40);
+		}
+	}
+
+	&__title {
+		text-align: center;
+		// @include adaptiveValue('font-size', 36, 32);
+	}
+
+	&__sub-title {
+		text-align: center;
+		// @include adaptiveValue('font-size', 18, 16);
+		line-height: 1.6; /* 28.8px */
+	}
+
+	&__items {
+		display: grid;
+		@media (min-width: $tablet) {
+			justify-content: center;
+		}
+		@include adaptiveValue('column-gap', 90, 30, 0, 1440, 991);
+		@media (min-width: $mobile) {
+			grid-template-columns: minmax(toRem(200), toRem(268)) minmax(toRem(508), toRem(811));
+		}
+		row-gap: toRem(50);
+		// @media (max-width: $mobile) {
+		// 	grid-template-columns: 1fr;
+		// }
+	}
+}
+
+.contact-item {
+	// ? Помінять містами КОНТАКТИ і форму
+	// & > :nth-child(1) {
+	// 	order: 1;
+	// }
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: toRem(24);
+		font-size: toRem(18);
+	}
+	&__form {
+	}
+
+	&__title {
+		@include adaptiveValue('font-size', 32, 24);
+		font-weight: 700;
+	}
+	&__phone {
+		@include adaptiveValue('font-size', 18, 16, 1, 1440, 768);
+		line-height: 1.6;
+		transition: all 0.3s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #ff4800;
+			}
+		}
+	}
+	&__location {
+		line-height: 1.6;
+		transition: all 0.3s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #ff4800;
+			}
+		}
+		@include adaptiveValue('font-size', 18, 16, 1, 1440, 768);
+	}
+	&__social-media {
+		display: flex;
+		column-gap: toRem(16);
+	}
+}
+.form {
+	display: grid;
+	@media (min-width: $mobile) {
+		grid-template-columns: minmax(toRem(228), toRem(330)) minmax(toRem(250), toRem(450));
+	}
+	@media (max-width: em(600)) {
+		grid-template-columns: 1fr;
+	}
+	column-gap: toRem(30);
+	row-gap: toRem(32);
+	&__column {
+	}
+
+	&__row {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(8);
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	}
+
+	&__label {
+		font-size: toRem(18);
+		line-height: 1.6; /* 28.8px */
+	}
+
+	&__input {
+	}
+
+	&__textarea {
+		min-height: toRem(256);
+		line-height: 1.6;
+		@media (max-width: em(600)) {
+			min-height: toRem(200);
+		}
+	}
+	&__button {
+		@media (min-width: em(600)) {
+			grid-column: 2;
+			justify-self: end; /* Прижимається до правого краю */
+			width: toRem(210); /* Задає ширину кнопки */
+		}
+	}
+}
+
 //====================================================================================================
 
 //====================================================================================================
