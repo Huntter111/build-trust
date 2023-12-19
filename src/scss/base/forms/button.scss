@@ -52,6 +52,7 @@
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
+	flex-shrink: 0;
 	min-height: toRem(56);
 	padding: toRem(12) toRem(30) toRem(13) toRem(30);
 	color: #eaedef;

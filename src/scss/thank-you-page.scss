@@ -1,0 +1,44 @@
+.thank-you-page {
+	@include adaptiveValue('padding-top', 263, 150);
+	@include adaptiveValue('padding-bottom', 168, 100);
+	background: #17302f url('@img/thank-you-page/background-1.png') 50% / cover no-repeat;
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		@media (min-width: $mobile) {
+			align-items: center;
+		}
+		row-gap: toRem(8);
+	}
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(16);
+		text-align: center;
+		@include adaptiveValue('font-size', 48, 30, 0, 1440, 375);
+		font-weight: 700;
+	}
+
+	&__text {
+		text-align: center;
+		margin-bottom: toRem(24);
+		@include adaptiveValue('font-size', 18, 16);
+		line-height: 1.6; /* 28.8px */
+	}
+
+	&__button {
+		@media (min-width: $mobile) {
+			min-width: toRem(362);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(16);
+		}
+	}
+}

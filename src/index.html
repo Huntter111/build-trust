@@ -397,11 +397,12 @@
 								</div>
 							</div>
 							<div class="contact-item__form">
-								<form class="form" action="files/sendmail/sendmail.php" method="POST">
+								<form class="form" action="files/sendTelegram.php" method="POST">
 									<div class="form__column">
 										<div class="form__row">
-											<label class="form__label" for="name">Ваше ім’я*</label>
+											<label class="form__label" for="personName">Ваше ім’я*</label>
 											<input
+												id="personName"
 												data-validate="name"
 												autocomplete="off"
 												type="text"
@@ -423,21 +424,22 @@
 											/>
 										</div>
 										<div class="form__row">
-											<label class="form__label" for="cheese">Email*</label>
+											<label class="form__label" for="emailInput">Email*</label>
 											<input
 												type="text"
 												name="email"
 												class="input form__input"
 												data-required="email"
 												required
+												id="emailInput"
 												data-validate="email"
 											/>
 										</div>
 									</div>
 									<div class="form__column">
 										<div class="form__row">
-											<label class="form__label" for="text">Коментар</label>
-											<textarea class="form__textarea input" name="message" id=""></textarea>
+											<label class="form__label" for="textMessage">Коментар</label>
+											<textarea class="form__textarea input" name="message" id="textMessage"></textarea>
 										</div>
 									</div>
 									<button type="submit" class="button-bg form__button">Відправити</button>

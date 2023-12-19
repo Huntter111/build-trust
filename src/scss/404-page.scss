@@ -1,0 +1,43 @@
+.page-404 {
+	@include adaptiveValue('padding-top', 240, 180);
+	@include adaptiveValue('padding-bottom', 145, 100);
+	background: #17302f url('@img/thank-you-page/background-1.png') 50% / cover no-repeat;
+	&__container {
+		// height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(12);
+		@media (min-width: $mobile) {
+			align-items: center;
+		}
+	}
+
+	&__title {
+		color: #de5e2c;
+		text-align: center;
+		@include adaptiveValue('font-size', 230, 100);
+		font-weight: 700;
+	}
+
+	&__text {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+		}
+	}
+
+	&__button {
+		@media (min-width: $mobile) {
+			min-width: toRem(362);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(16);
+		}
+	}
+}
