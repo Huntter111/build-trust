@@ -314,13 +314,35 @@
 
 //====================================================================================================
 // ! SERVICES
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px; /* простір між елементами, налаштуйте за потребою */
+}
+
+.grid-item {
+	padding: 20px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+/* Зеркальне відображення для трьох останніх елементів */
+.grid-item:nth-child(n + 4) {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	grid-auto-flow: column-reverse; /* Зміна напрямку для зеркального відображення */
+}
+
 .services {
 	@include adaptiveValue('padding-top', 120, 80);
 	@include adaptiveValue('padding-bottom', 120, 80);
 	&__container {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		@media (min-width: $mobileSmall) {
+			align-items: center;
+		}
 		@include adaptiveValue('row-gap', 56, 30);
 	}
 
@@ -329,6 +351,9 @@
 	}
 
 	&__cards {
+		// display: flex;
+		// flex-direction: column;
+		// row-gap: toRem(30);
 		display: grid;
 		// !
 		// !
@@ -344,6 +369,10 @@
 		}
 		column-gap: toRem(30);
 		@include adaptiveValue('row-gap', 56, 30, 0, 1440, 768);
+
+		// &:nth-child(3n + 1) {
+		// 	grid-auto-flow: column-reverse;
+		// }
 	}
 	&__button {
 		@media (min-width: $mobileSmall) {
@@ -357,6 +386,7 @@
 .cards-services {
 	&__image {
 		overflow: hidden;
+
 		@media (max-width: em(600)) {
 			&:nth-child(4n) {
 				order: 2;
@@ -399,11 +429,13 @@
 			}
 		}
 	}
+
 	&__cards-services__ibg {
 	}
 }
 
 .card-service {
+	flex-grow: 1;
 	border: toRem(1) solid #eaedef;
 	position: relative;
 
@@ -430,6 +462,7 @@
 		height: toRem(1);
 		background: #eaedef;
 	}
+
 	&__title {
 		@include adaptiveValue('font-size', 18, 16, 0, 1440, 991);
 		font-weight: 700;
@@ -486,19 +519,29 @@
 			// position: absolute;
 			// top: 50%;
 			// display: block;
+			button {
+				transform: translateY(50%);
+				&:nth-child(1) {
+					padding-left: toRem(10);
+				}
+				&:nth-child(2) {
+					padding-right: toRem(10);
+				}
+			}
 			& > ::after {
 				position: absolute;
-				top: 50%;
+				top: 0%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				flex: 0 0 toRem(40);
+				flex: 0 0 toRem(48);
 				color: #eaedef;
-				font-size: toRem(20) !important;
-				width: toRem(40);
+				font-size: toRem(24) !important;
+				width: toRem(48);
 				background-color: #de5e2c;
-				height: toRem(40);
+				height: toRem(48);
 				border-radius: 50%;
+
 				@media (any-hover: hover) {
 					&:hover {
 						background-color: #ff4800;
@@ -555,7 +598,18 @@
 	}
 	&__image-wrapper {
 		position: relative;
-
+		// &::after {
+		// 	position: absolute;
+		// 	content: '';
+		// 	top: 0;
+		// 	left: 0;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	background:
+		// 		linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+		// 		url('@img/projects/icons/icon-01.svg') 50% /150px 150px no-repeat;
+		// 	z-index: 6;
+		// }
 		&::before {
 			content: '';
 			position: absolute;
@@ -634,8 +688,8 @@
 		transition: all 0.3s;
 		@include adaptiveValue('padding-top', 34, 10, 0, 1440, 768);
 		@include adaptiveValue('padding-bottom', 35, 10, 0, 1440, 768);
-		@include adaptiveValue('padding-left', 49, 20, 0, 1440, 768);
-		@include adaptiveValue('padding-right', 48, 20, 0, 1440, 768);
+		@include adaptiveValue('padding-left', 49, 15, 0, 1440, 768);
+		@include adaptiveValue('padding-right', 48, 15, 0, 1440, 768);
 		@media (hover: none) {
 			transform: translateY(0);
 		}
@@ -664,6 +718,10 @@
 	}
 
 	&__button {
+		@media (max-width: $mobile) {
+			width: toRem(44);
+			height: toRem(44);
+		}
 	}
 }
 
@@ -770,6 +828,156 @@
 	}
 }
 
+// ====================================================================================================
+// ! MAPS
+.map__body {
+	display: none;
+}
+.map {
+	&__container {
+		@include adaptiveValue('padding-top', 120, 50);
+		padding-bottom: toRem(32);
+		display: flex;
+		justify-content: end;
+	}
+	&__body {
+	}
+	&__wrapper-maps {
+		max-width: toRem(1920);
+		margin: 0 auto;
+	}
+}
+.body-map {
+	&__image {
+		&--form-1 {
+			position: relative;
+		}
+		&--form-2 {
+		}
+		&--form-3 {
+		}
+	}
+
+	&__image--wrapper {
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background:
+				linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%),
+				-399.919px 0px / 156.526% 100% no-repeat;
+		}
+		img {
+			@media (max-width: $mobile) {
+				width: 130%;
+			}
+			max-height: toRem(829);
+		}
+	}
+
+	&__ibg {
+	}
+}
+.body-map {
+	&__tooltips {
+	}
+}
+.tooltip {
+	&--first {
+	}
+	&--second {
+	}
+}
+
+//====================================================================================================
+// ! Це тултіп
+.tooltip-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.tooltip-container {
+	position: relative;
+	display: inline-block;
+	&:nth-child(1) {
+		position: absolute;
+		left: 22%;
+		top: 36%;
+	}
+	&:nth-child(2) {
+		position: absolute;
+		left: 63.5%;
+		top: 58%;
+	}
+}
+
+.tooltip {
+	display: none;
+	position: absolute;
+	bottom: 120%;
+	left: 0;
+	// transform: translateX(-50%);
+	padding: toRem(32) toRem(28);
+	@media (max-width: $tablet) {
+		padding: toRem(8) toRem(7);
+		font-size: toRem(14);
+	}
+	background-color: #1c1c1c;
+	color: #eaedef;
+	border-radius: 8px;
+	// white-space: nowrap;
+	font-size: toRem(18);
+	line-height: 1.6;
+	&:nth-child(1) {
+		@media (max-width: $tablet) {
+			// bottom: -80%;
+		}
+	}
+	&:nth-child(2) {
+		@media (max-width: $tablet) {
+			left: -100%;
+			bottom: 100%;
+		}
+	}
+	&::before {
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: toRem(25);
+		bottom: -15px;
+		right: 0;
+	}
+	&__body {
+		display: flex;
+		align-items: center;
+		gap: toRem(20);
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(4);
+		@media (min-width: $mobile) {
+			width: toRem(212);
+		}
+	}
+
+	&__link {
+		width: 32px;
+		height: 32px;
+	}
+}
+
+.tooltip.active {
+	display: inline-block;
+}
+
 //====================================================================================================
 // ! CONTACTS
 .contact {
@@ -809,6 +1017,9 @@
 		@media (min-width: $mobile) {
 			grid-template-columns: minmax(toRem(200), toRem(268)) minmax(toRem(508), toRem(811));
 		}
+		// @media (max-width: em(600)) {
+		// 	grid-template-columns: repeat(2, 1fr);
+		// }
 		row-gap: toRem(50);
 		// @media (max-width: $mobile) {
 		// 	grid-template-columns: 1fr;
@@ -818,9 +1029,11 @@
 
 .contact-item {
 	// ? Помінять містами КОНТАКТИ і форму
-	// & > :nth-child(1) {
-	// 	order: 1;
-	// }
+	@media (max-width: $mobile) {
+		& > :nth-child(1) {
+			order: 1;
+		}
+	}
 	&__contacts {
 		display: flex;
 		flex-direction: column;
@@ -865,8 +1078,11 @@
 	@media (min-width: $mobile) {
 		grid-template-columns: minmax(toRem(228), toRem(330)) minmax(toRem(250), toRem(450));
 	}
-	@media (max-width: em(600)) {
-		grid-template-columns: 1fr;
+	// @media (max-width: em(767)) {
+	// 	grid-template-columns: 2fr;
+	// }
+	@media (max-width: $mobile) {
+		grid-template-columns: 2fr;
 	}
 	column-gap: toRem(30);
 	row-gap: toRem(32);
@@ -898,7 +1114,10 @@
 		}
 	}
 	&__button {
-		@media (min-width: em(600)) {
+		font-size: toRem(18);
+
+		font-weight: 400;
+		@media (min-width: em(768)) {
 			grid-column: 2;
 			justify-self: end; /* Прижимається до правого краю */
 			width: toRem(210); /* Задає ширину кнопки */

@@ -9,36 +9,50 @@
 	}
 	// .select__title
 	&__title {
+		min-width: toRem(207);
 		color: inherit;
 		text-align: left;
-		border: 1px solid #d9d9d9;
-		background-color: #fff;
+		font-size: toRem(24);
 		cursor: pointer;
 		width: 100%;
-		border-radius: 4px;
+		// border-radius: 4px;
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
 	}
 	// .select__value
 	&__value {
-		display: flex;
 		min-width: 0;
-		align-items: center;
+		// min-width: toRem(210);
+		// align-items: center;
+		display: flex;
 		height: toRem(30);
-		padding: 0 toRem(15);
-		gap: toRem(10);
+		// padding: 0 toRem(15);
+		gap: toRem(4);
 		> * {
 			flex: 1 1 auto;
 		}
 		&:after {
-			content: "";
+			content: '';
 			align-self: stretch;
-			flex: 0 0 10px;
+			flex: 0 0 toRem(24);
+			// height: toRem(24);
 			transition: all 0.3s ease 0s;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M2.25 6.75L12.1455 16.5L21.75 7.03676" stroke="%23EAEDEF" stroke-width="2"/></svg>')
+				50% / 24px 24px no-repeat;
+
 			._select-open & {
-				transform: rotate(-180deg);
+				transform: rotate(180deg);
+				color: #ff4800;
+				background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M2.25 6.75L12.1455 16.5L21.75 7.03676" stroke="%23FF4800" stroke-width="2"/></svg>')
+					50% / 24px 24px no-repeat;
 			}
+		}
+		._select-open & {
+			color: #ff4800;
 		}
 		&._select-pseudo-label {
 			&::before {
@@ -49,7 +63,7 @@
 	}
 	// .select__content
 	&__content {
-		flex: 1 1 auto;
+		flex: 0 1 auto;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -68,17 +82,27 @@
 	}
 	// .select__options
 	&__options {
-		color: #000;
+		color: #1c1c1c;
 		position: absolute;
 		top: calc(100% - toRem(1));
-		border-radius: 0 0 4px 4px;
+		// border-radius: 0 0 4px 4px;
 		min-width: 100%;
 		left: 0;
-		background-color: #fff;
+		background-color: #eaedef;
 		border-top: 0;
-		border: 1px solid #d9d9d9;
+		border: toRem(0.5) solid #ff4800;
 		border-top: 0;
-		padding: 10px 0px 5px 0px;
+		padding: toRem(24) toRem(22);
+		// position: relative;
+		&::after {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: toRem(0.5);
+			background-color: #ff4800;
+		}
 	}
 	// .select__scroll
 	&__scroll {
@@ -98,14 +122,18 @@
 		width: 100%;
 		text-align: left;
 		cursor: pointer;
-		padding: 5px 15px;
+		padding: toRem(5) 0;
 		color: inherit;
+		transition: all 0.3s;
+		font-size: toRem(24);
+		line-height: normal;
 		&._select-selected {
 			background-color: #eee;
 		}
 		@media (any-hover: hover) {
 			&:hover {
-				background: #d9d9d9;
+				color: #ff4800;
+				background: transparent;
 			}
 		}
 	}

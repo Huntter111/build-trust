@@ -3,7 +3,6 @@
 	@include adaptiveValue('padding-bottom', 145, 100);
 	background: #17302f url('@img/thank-you-page/background-1.png') 50% / cover no-repeat;
 	&__container {
-		// height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
