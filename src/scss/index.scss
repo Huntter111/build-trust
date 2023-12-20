@@ -384,6 +384,38 @@
 	}
 }
 .cards-services {
+}
+
+.card-service {
+	&__info {
+		flex-grow: 1;
+		border: toRem(1) solid #eaedef;
+		position: relative;
+
+		@include adaptiveValue('padding-top', 41, 20, 0, 1440, 768);
+		@include adaptiveValue('padding-bottom', 41, 20, 0, 1440, 768);
+		@include adaptiveValue('padding-right', 24, 14, 0, 1440, 991);
+		@include adaptiveValue('padding-left', 24, 14, 0, 1440, 991);
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: toRem(126);
+			@media (max-width: em(1100)) {
+				top: toRem(100);
+			}
+			@media (max-width: $tablet) {
+				top: toRem(80);
+			}
+			@media (max-width: $mobile) {
+				top: toRem(80);
+			}
+			left: 0;
+			width: 100%;
+			height: toRem(1);
+			background: #eaedef;
+		}
+	}
 	&__image {
 		overflow: hidden;
 
@@ -431,36 +463,6 @@
 	}
 
 	&__cards-services__ibg {
-	}
-}
-
-.card-service {
-	flex-grow: 1;
-	border: toRem(1) solid #eaedef;
-	position: relative;
-
-	@include adaptiveValue('padding-top', 41, 20, 0, 1440, 768);
-	@include adaptiveValue('padding-bottom', 41, 20, 0, 1440, 768);
-	@include adaptiveValue('padding-right', 24, 14, 0, 1440, 991);
-	@include adaptiveValue('padding-left', 24, 14, 0, 1440, 991);
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: toRem(126);
-		@media (max-width: em(1100)) {
-			top: toRem(100);
-		}
-		@media (max-width: $tablet) {
-			top: toRem(80);
-		}
-		@media (max-width: $mobile) {
-			top: toRem(80);
-		}
-		left: 0;
-		width: 100%;
-		height: toRem(1);
-		background: #eaedef;
 	}
 
 	&__title {

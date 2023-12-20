@@ -1,0 +1,256 @@
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.container__row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	// row-gap: 56px; /* Відступ між рядками */
+	column-gap: 30px; /* Відступ між елементами */
+}
+
+.item {
+	width: calc(33.33% - 30px); /* Враховуємо відступ між елементами */
+	box-sizing: border-box;
+	background-color: #ccc;
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px; /* Доданий відступ між елементами на мобільних пристроях */
+}
+
+@media (max-width: 1440px) {
+	.item {
+		width: calc(33.33% - 30px);
+	}
+}
+
+@media (max-width: 991px) {
+	.item {
+		width: calc(50% - 30px);
+		&:nth-child(3n + 1) {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 470px) {
+	.item {
+		width: 100%;
+	}
+}
+
+/* Кожен другий рядок row-reverse */
+@media (min-width: $tablet) {
+	.container__row:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+}
+
+.all-services {
+	@include adaptiveValue('padding-top', 159, 80);
+	@include adaptiveValue('padding-bottom', 120, 80);
+	&__container {
+	}
+	&__title {
+	}
+	&__tabs {
+	}
+	&__tabs-navigation {
+	}
+	&__tabs-title {
+	}
+	&__tabs-content {
+	}
+	&__tabs-body {
+	}
+	&__tabs-body--hotel-complexes {
+	}
+	&__tabs-body--cottage-towns {
+	}
+	&__tabs-body--food-establish {
+	}
+	&__tabs-body--investors {
+	}
+}
+.title {
+}
+.tabs {
+	&__navigation {
+	}
+	&__title {
+	}
+	&__content {
+	}
+	&__body {
+	}
+}
+
+.tabs-body-all-services {
+	&__cards {
+		// &:nth-child(4n + 2) {
+		// 	flex-direction: row-reverse;
+		// }
+		// display: grid;
+		// @media (min-width: em(479)) {
+		// 	grid-template-columns: repeat(2, 1fr);
+		// }
+		// @media (min-width: $tablet) {
+		// 	grid-template-columns: repeat(3, 1fr);
+		// 	@include adaptiveValue('row-gap', 56, 30, 0, 1440, 991);
+		// }
+		// justify-items: center;
+		// column-gap: toRem(30);
+		// row-gap: toRem(30);
+		// @media (max-width: $mobile) {
+		// 	column-gap: toRem(15);
+		// 	row-gap: toRem(15);
+		// }
+	}
+	&__card {
+	}
+}
+
+.cards-services {
+	display: flex;
+	flex-direction: column;
+	& > :nth-child(even) {
+		flex-direction: row-reverse;
+	}
+	@media (max-width: $mobile) {
+		// @include adaptiveValue('row-gap', 30, 20, 0, 767, 479);
+		row-gap: toRem(30);
+	}
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@media (max-width: $mobile) {
+			@include adaptiveValue('row-gap', 20, 10, 0, 767, 479);
+		}
+	}
+	&__item {
+		display: flex;
+		width: calc(33.33% - toRem(20)); /* Враховуємо відступ між стовпцями */
+		@media (max-width: $tablet) {
+			width: calc(33.33% - toRem(10));
+		}
+		@media (min-width: $mobile) {
+			@include adaptiveValue('margin-bottom', 56, 20, 0, 1440, 991);
+		}
+
+		@media (max-width: $mobile) {
+			// margin-bottom: toRem(20);
+
+			width: calc(50% - toRem(10));
+			& > :nth-child(3n + 1) {
+				width: 100%;
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			width: calc(50% - toRem(5));
+		}
+		// @media (max-width: em(375)) {
+		// 	width: 100%;
+		// }
+		@media (max-width: $mobile) {
+			&:nth-child(3n + 1) {
+				width: 100%;
+			}
+		}
+	}
+	&__card {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		border: toRem(1) solid #eaedef;
+		flex-grow: 1;
+	}
+
+	&__title {
+		@include adaptiveValue('font-size', 18, 16, 0, 1440, 991);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 1.5;
+		text-transform: uppercase;
+		max-width: toRem(317);
+		@include adaptiveValue('padding-top', 41, 20, 0, 1440, 991);
+		@include adaptiveValue('padding-left', 24, 10, 0, 1440, 991);
+		@include adaptiveValue('padding-bottom', 31, 10, 0, 1440, 991);
+	}
+	&__description {
+		@include adaptiveValue('padding-right', 24, 10, 0, 1440, 991);
+		@include adaptiveValue('padding-top', 64, 10, 0, 1440, 991);
+		@include adaptiveValue('padding-left', 24, 10, 0, 1440, 991);
+
+		@include adaptiveValue('font-size', 18, 16, 0, 1440, 991);
+		margin-bottom: toRem(24);
+		font-style: normal;
+		line-height: 1.6;
+		@media (max-width: $tablet) {
+			line-height: 1.4;
+		}
+	}
+	&__line {
+		width: 100%;
+		height: toRem(0.5);
+		background-color: #eaedef;
+	}
+
+	&__button {
+		margin-bottom: toRem(24);
+		@include adaptiveValue('margin-left', 24, 10);
+		@media (any-hover: hover) {
+			transition: all 0.3s;
+			&:hover {
+				transform: translateX(5%);
+			}
+		}
+	}
+	&__image {
+		display: flex;
+		flex-grow: 1;
+		overflow: hidden;
+	}
+	&__wrapper {
+		flex-grow: 1;
+		max-width: toRem(450);
+		max-height: toRem(618);
+
+		position: relative;
+		transition: all 1s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
+		&--bg-20 {
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+		}
+		&--bg-30 {
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+			}
+		}
+		&--bg-40 {
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+			}
+		}
+		&__ibg {
+		}
+	}
+}

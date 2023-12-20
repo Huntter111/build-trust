@@ -70,28 +70,59 @@ import { flsModules } from './modules.js';
 // 	});
 // });
 // ????? =================================================== Основний робочий
+// function showCustomContent(selectedValue) {
+// 	// Hide all content elements
+// 	var contentElements = document.getElementsByClassName('map__body');
+// 	for (var i = 0; i < contentElements.length; i++) {
+// 		contentElements[i].style.display = 'none';
+// 	}
+
+// 	// Show the selected content element
+// 	var selectedContent = document.querySelector("[data-content-id='form-" + selectedValue + "']");
+// 	selectedContent.style.display = 'block';
+// }
+
+// document.addEventListener('selectCallback', function (e) {
+// 	const selectedValue = e.detail.select.value;
+
+// 	// Call the function to display content based on the selected value
+// 	showCustomContent(selectedValue);
+// });
+
+// // Call the function to display default content
+// showCustomContent(document.getElementById('custom_select').value);
+// ? ОСНОВНИЙ ПЕРЕРОБЛЕНИЙ
 function showCustomContent(selectedValue) {
 	// Hide all content elements
-	var contentElements = document.getElementsByClassName('map__body');
-	for (var i = 0; i < contentElements.length; i++) {
+	let contentElements = document.getElementsByClassName('map__body');
+	for (let i = 0; i < contentElements.length; i++) {
 		contentElements[i].style.display = 'none';
 	}
 
 	// Show the selected content element
-	var selectedContent = document.querySelector("[data-content-id='form-" + selectedValue + "']");
-	selectedContent.style.display = 'block';
+	let selectedContent = document.querySelector("[data-content-id='form-" + selectedValue + "']");
+	if (selectedContent) {
+		selectedContent.style.display = 'block';
+	}
 }
 
 document.addEventListener('selectCallback', function (e) {
 	const selectedValue = e.detail.select.value;
 
-	// Call the function to display content based on the selected value
-	showCustomContent(selectedValue);
+	// Check if .map__container exists on the page
+	let mapContainer = document.querySelector('.map__container');
+	if (mapContainer) {
+		// Call the function to display content based on the selected value
+		showCustomContent(selectedValue);
+	}
 });
 
-// Call the function to display default content
-showCustomContent(document.getElementById('custom_select').value);
-
+// Check if .map__container exists on the page
+var mapContainer = document.querySelector('.map__container');
+if (mapContainer) {
+	// Call the function to display default content
+	showCustomContent(document.getElementById('custom_select').value);
+}
 // ! =================================================== ТУЛТІП перший
 // document.addEventListener('DOMContentLoaded', function () {
 // 	const tooltipTrigger = document.getElementById('tooltip-trigger');
