@@ -1,15 +1,16 @@
 <!-- Стилі для body -->
 <style>
-	.lock body{
+	.lock body {
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
 	}
-	.loading body{
-		opacity: 0;
+	.loading body {
 		visibility: hidden;
+		opacity: 0;
+		background-color: #000;
 	}
-	.loaded body{
+	.loaded body {
 		transition: opacity 0.5s ease 0s;
 		opacity: 1;
 		visibility: visible;
@@ -29,13 +30,13 @@
 		*:after {
 			box-sizing: border-box;
 		}
-		html{
+		html {
 			overflow: hidden;
 			touch-action: none;
 			overscroll-behavior: none;
 		}
 		/* Головний блок */
-		.fls-preloader{
+		.fls-preloader {
 			pointer-events: none;
 			z-index: -1;
 			position: fixed;
@@ -44,91 +45,310 @@
 			top: 0;
 			left: 0;
 			display: flex;
-			justify-content:center;
+			justify-content: center;
 			align-items: center;
 		}
 		/* Блок з елементами */
-		.fls-preloader__body{
+		.fls-preloader__body {
 			padding: 0.93rem;
 			max-width: 31.25rem;
 			display: flex;
 			flex-direction: column;
 		}
 		/* Блок з лічильником */
-		.fls-preloader__counter{
+		.fls-preloader__counter {
 			font-size: 10rem;
 		}
 		/* Прогресбар */
-		.fls-preloader__line{}
+		.fls-preloader__line {
+		}
 		/* Лінія прогресбару */
-		.fls-preloader__line span{
+		.fls-preloader__line span {
 			display: inline-block;
 			transition: width 0.2s ease;
 			height: 0.8rem;
-			background-color: #7A956B;
+			background-color: #7a956b;
+		}
+		.text-blob {
+			/* color: #fff; */
+
+			/* background-color: #000; */
+			/* padding: 20px; */
+			/* border-radius: 10px; */
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -100%);
+		}
+		.fade-in {
+			animation: fadeIn ease 0.1s; /* Змінено тривалість на дуже мале значення, щоб анімація спрацювала миттєво */
+			-webkit-animation: fadeIn ease 4s;
+			-moz-animation: fadeIn ease 4s;
+			-o-animation: fadeIn ease 4s;
+			-ms-animation: fadeIn ease 4s;
+		}
+		.fade-out {
+			animation: fadeOut ease 0.1s;
+			-webkit-animation: fadeOut ease 5s;
+			-moz-animation: fadeOut ease 5s;
+			-o-animation: fadeOut ease 5s;
+			-ms-animation: fadeOut ease 5s;
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+				color: #333; /* Додайте колір, щоб текст був чорний спочатку */
+			}
+			100% {
+				opacity: 1;
+				color: #fff; /* Змініть колір на білий під час появи тексту */
+			}
+		}
+
+		@-moz-keyframes fadeIn {
+			0% {
+				opacity: 0;
+				color: #000;
+			}
+			100% {
+				opacity: 1;
+				color: #fff;
+			}
+		}
+
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+				color: #000;
+			}
+			100% {
+				opacity: 1;
+				color: #fff;
+			}
+		}
+
+		@-o-keyframes fadeIn {
+			0% {
+				opacity: 0;
+				color: #000;
+			}
+			100% {
+				opacity: 1;
+				color: #fff;
+			}
+		}
+
+		@-ms-keyframes fadeIn {
+			0% {
+				opacity: 0;
+				color: #000;
+			}
+			100% {
+				opacity: 1;
+				color: #fff;
+			}
 		}
 	</style>
-	<!-- Скріпт прелоадера -->
-	<script>
+	<script async>
 		function preloader() {
-			const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
+			const preloaderImages = document.querySelector('[data-preloader]')
+				? document.querySelectorAll('[data-preloader] img')
+				: document.querySelectorAll('img');
 			const preloaderContainer = document.querySelector('#fls-preloader');
-			if (preloaderImages.length) {
-				const preloaderTemplate =`
-					<div class="fls-preloader">
-						<div class="fls-preloader__body">
-							<div class="fls-preloader__counter">0%</div>
-							<div class="fls-preloader__line"><span></span></div>
-						</div>
-					</div>`;
-				document.querySelector('html').insertAdjacentHTML("beforeend",preloaderTemplate);
 
-				const
-					preloader = document.querySelector('.fls-preloader'),
-					showPecentLoad = document.querySelector('.fls-preloader__counter'),
-					showLineLoad = document.querySelector('.fls-preloader__line span'),
+			if (preloaderImages.length) {
+				const preloaderTemplate = `
+						<div class="fls-preloader">
+							 <div class="fls-preloader__body">
+								  <div class="text-blob">BUILD TRUST</div>
+							 </div>
+						</div>`;
+				document.querySelector('html').insertAdjacentHTML('beforeend', preloaderTemplate);
+
+				const preloader = document.querySelector('.fls-preloader'),
 					htmlDocument = document.documentElement;
 
-				let imagesLoadedCount = counter = progress = 0;
-				
+				let imagesLoadedCount = 0;
+
 				htmlDocument.classList.add('loading');
 				htmlDocument.classList.add('lock');
 
-				preloaderImages.forEach(preloaderImage => {
+				preloaderImages.forEach((preloaderImage) => {
 					const imgClone = document.createElement('img');
 					if (imgClone) {
 						imgClone.onload = imageLoaded;
 						imgClone.onerror = imageLoaded;
-						preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+						preloaderImage.dataset.src
+							? (imgClone.src = preloaderImage.dataset.src)
+							: (imgClone.src = preloaderImage.src);
 					}
 				});
-				function setValueProgress(progress) {
-					showPecentLoad ? showPecentLoad.innerText = `${progress}%`: null;
-					showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
-				}
-				showPecentLoad ? setValueProgress(progress) : null;
 
 				function imageLoaded() {
 					imagesLoadedCount++;
-					progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
-					const intervalId = setInterval(() => {
-						counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
-						counter >= 100 ? addLoadedClass() : null;
-					}, 10);
+					if (imagesLoadedCount >= preloaderImages.length) {
+						setTimeout(addLoadedClass, 3500); // Add delay here
+					}
+				}
+
+				function addLoadedClass() {
+					htmlDocument.classList.add('loaded');
+					htmlDocument.classList.remove('lock');
+					htmlDocument.classList.remove('loading');
+					setTimeout(() => {
+						// Add delay here
+						preloader.remove();
+						preloaderContainer.remove();
+					}, 500);
+				}
+			} else {
+				preloaderContainer.remove();
+			}
+
+			// Text Animator
+			class TextAnimator {
+				constructor(selector, options) {
+					this.text = document.querySelector(selector);
+					this.strText = this.text.textContent.trim();
+					this.splitText = this.strText.split('');
+					this.text.textContent = '';
+					this.options = options || {};
+					this.margin = this.options.margin || '0px';
+					this.delay = this.options.delay || 0;
+					this.class = this.options.class || 'text-span';
+				}
+
+				animate() {
+					for (let i = 0; i < this.splitText.length; i++) {
+						if (this.splitText[i] === ' ') {
+							this.text.innerHTML += '&nbsp;';
+						} else {
+							this.text.innerHTML +=
+								"<span class='" +
+								this.class +
+								"' style='margin-right:" +
+								this.margin +
+								';animation-delay:' +
+								i * this.delay +
+								"ms;'><span class='fade-in' style='animation-delay:" +
+								i * this.delay +
+								"ms;'>" +
+								this.splitText[i] +
+								'</span></span>';
+						}
+					}
+				}
+			}
+
+			const animator = new TextAnimator('.text-blob', {
+				margin: '5px',
+				delay: 80,
+				class: 'text-blob__letter',
+			});
+			animator.animate();
+		}
+
+		preloader();
+	</script>
+	<!-- Скріпт прелоадера -->
+	<!-- <script async>
+		function preloader() {
+			const preloaderImages = document.querySelector('[data-preloader]')
+				? document.querySelectorAll('[data-preloader] img')
+				: document.querySelectorAll('img');
+			const preloaderContainer = document.querySelector('#fls-preloader');
+			if (preloaderImages.length) {
+				const preloaderTemplate = `
+					<div class="fls-preloader">
+						<div class="fls-preloader__body">
+							<div class="text-blob">BUILD TRUST</div>
+						</div>
+					</div>`;
+				document.querySelector('html').insertAdjacentHTML('beforeend', preloaderTemplate);
+
+				const preloader = document.querySelector('.fls-preloader'),
+					htmlDocument = document.documentElement;
+
+				let imagesLoadedCount = 0;
+
+				htmlDocument.classList.add('loading');
+				htmlDocument.classList.add('lock');
+
+				preloaderImages.forEach((preloaderImage) => {
+					const imgClone = document.createElement('img');
+					if (imgClone) {
+						imgClone.onload = imageLoaded;
+						imgClone.onerror = imageLoaded;
+						preloaderImage.dataset.src
+							? (imgClone.src = preloaderImage.dataset.src)
+							: (imgClone.src = preloaderImage.src);
+					}
+				});
+
+				function imageLoaded() {
+					imagesLoadedCount++;
+					if (imagesLoadedCount >= preloaderImages.length) {
+						setTimeout(addLoadedClass, 3500); // Add delay here
+					}
 				}
 				function addLoadedClass() {
 					htmlDocument.classList.add('loaded');
 					htmlDocument.classList.remove('lock');
 					htmlDocument.classList.remove('loading');
-					setInterval(() => {
+					setTimeout(() => {
+						// Add delay here
 						preloader.remove();
 						preloaderContainer.remove();
 					}, 500);
 				}
-			}else{
+			} else {
 				preloaderContainer.remove();
 			}
 		}
 		preloader();
-	</script>
+	</script> -->
+	<!-- Скріпт анімації  -->
+	<!-- <script async>
+		class TextAnimator {
+			constructor(selector, options) {
+				this.text = document.querySelector(selector);
+				this.strText = this.text.textContent.trim();
+				this.splitText = this.strText.split('');
+				this.text.textContent = '';
+				this.options = options || {};
+				this.margin = this.options.margin || '0px';
+				this.delay = this.options.delay || 0;
+				this.class = this.options.class || 'text-span';
+			}
+
+			animate() {
+				for (let i = 0; i < this.splitText.length; i++) {
+					if (this.splitText[i] === ' ') {
+						this.text.innerHTML += '&nbsp;';
+					} else {
+						this.text.innerHTML +=
+							"<span class='" +
+							this.class +
+							"' style='margin-right:" +
+							this.margin +
+							';animation-delay:' +
+							i * this.delay +
+							"ms;'><span class='fade-in' style='animation-delay:" +
+							i * this.delay +
+							"ms;'>" +
+							this.splitText[i] +
+							'</span></span>';
+					}
+				}
+			}
+		}
+
+		const animator = new TextAnimator('.text-blob', {
+			margin: '5px',
+			delay: 80,
+			class: 'text-blob__letter',
+		});
+		animator.animate();
+	</script> -->
 </div>

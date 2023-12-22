@@ -35,6 +35,20 @@
 	}
 	// .menu__list
 	&__list {
+		list-style-type: none;
+		padding: 0;
+		display: flex;
+		@include adaptiveValue('column-gap', 46, 30, 0, 1440, 767);
+		row-gap: toRem(10);
+		flex-wrap: wrap;
+		@media (max-width: $mobile) {
+			row-gap: toRem(30);
+		}
+		@media (max-width: $mobile) {
+			& > :nth-child(3) {
+				transform: translateX(toRem(11));
+			}
+		}
 		@media (max-width: $mobile) {
 			flex-direction: column;
 			align-items: center;
@@ -42,10 +56,38 @@
 	}
 	// .menu__item
 	&__item {
+		display: flex;
+		gap: toRem(8);
+		position: relative;
+		align-items: center;
+		// transition: all 0.3s;
+		// @media (any-hover: hover) {
+		// 	// transition: all 0.3s;
+		// 	&:hover {
+		// 		.arrow {
+		// 			transform: rotate(-180deg) translateY(-4px);
+		// 			stroke: #ff4800;
+		// 		}
+		// 	}
+		// }
+		&--arrow {
+			align-items: center;
+		}
 	}
 	// .menu__link
 	&__link {
+		@include adaptiveValue('font-size', 18, 14, 0, 1440, 768);
+		transition: all 0.3s;
+		text-decoration: none;
+		line-height: 1.6;
+
 		@media (max-width: $mobile) {
+			font-size: toRem(22);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: #ff4800;
+			}
 		}
 	}
 }
@@ -103,38 +145,6 @@
 
 // !
 
-.menu__list {
-	list-style-type: none;
-	padding: 0;
-	display: flex;
-	@include adaptiveValue('column-gap', 46, 30, 0, 1440, 767);
-	row-gap: toRem(10);
-	flex-wrap: wrap;
-	@media (max-width: $mobile) {
-		row-gap: toRem(30);
-	}
-}
-
-.menu__item {
-	display: flex;
-	gap: toRem(8);
-	position: relative;
-	align-items: center;
-	// transition: all 0.3s;
-	@media (any-hover: hover) {
-		// transition: all 0.3s;
-		&:hover {
-			.arrow {
-				transform: rotate(-180deg) translateY(-4px);
-				stroke: #ff4800;
-			}
-		}
-	}
-	&--arrow {
-		align-items: center;
-	}
-}
-
 .sub-menu__list {
 	display: none;
 	position: absolute;
@@ -144,14 +154,11 @@
 	border: toRem(0.5) solid #de5e2c;
 	background: #eaedef;
 	color: #181616;
-
+	z-index: 20;
 	min-width: toRem(240);
 	@media (max-width: $mobile) {
 		left: -70px;
 	}
-}
-.menu__item--arrow:hover .menu__link {
-	color: #ff4800; /* Червоний колір тексту */
 }
 .sub-menu__link {
 	transition: all 0.15s;
@@ -166,48 +173,85 @@
 		}
 	}
 }
-.menu__item:hover .sub-menu__list {
-	display: block;
-	&::before {
-		content: '';
-		display: block;
-		height: 20px;
-		left: 0;
-		position: absolute;
-		top: -20px;
-		width: 100%;
+.menu__item--arrow {
+	@media (any-hover: hover) {
+		&:hover {
+			.menu__link {
+				color: #ff4800; /* Червоний колір тексту */
+			}
+		}
 	}
 }
+.menu__item {
+	@media (any-hover: hover) {
+		&:hover {
+			.sub-menu__list {
+				display: block;
+				cursor: pointer;
+				&::before {
+					content: '';
+					display: block;
+					height: 20px;
+					left: 0;
+					position: absolute;
+					top: -20px;
+					width: 100%;
+				}
+			}
+			.arrow {
+				transition: all 0.3s;
+				transform: rotate(-180deg);
+				stroke: #ff4800;
+			}
+		}
+	}
+}
+
 .sub-menu__item {
 	&:not(:last-child) {
 		padding-bottom: toRem(12);
 	}
 }
-.menu__link {
-	@include adaptiveValue('font-size', 18, 14, 0, 1440, 768);
-	transition: all 0.3s;
-	text-decoration: none;
-	line-height: 1.6;
+// .sub-menu__list {
+// 	display: none; // За замовчуванням приховуємо підменю
+// }
 
-	@media (max-width: $mobile) {
-		font-size: toRem(22);
+.sub-menu-open .sub-menu__list {
+	display: block; // Показуємо підменю, якщо є клас sub-menu-open
+}
+.sub-menu-open {
+	.menu__item--arrow {
+		color: #ff4800;
+	}
+	.arrow {
+		transition: all 0.3s;
+		transform: rotate(-180deg);
+		stroke: #ff4800;
+	}
+	.menu__link {
+		color: #ff4800;
 	}
 }
-.menu__link:hover {
-	color: #ff4800;
-}
+// .sub-menu-open {
+// }
 .arrow {
 	transition: all 0.3s;
 	display: inline-block;
 	vertical-align: middle;
 	stroke: #eaedef;
 }
-.menu__item.touch .sub-menu__list {
-	display: block;
-}
+// .menu__item.touch .sub-menu__list {
+// 	display: block;
+// }
 
-.touch .menu__item--arrow:hover .arrow {
-	transition: all 0.3s;
-	transform: rotate(-180deg);
-	stroke: #ff4800;
-}
+// .touch .menu__item--arrow {
+// 	@media (any-hover: hover) {
+// 		&:hover {
+// 			.arrow {
+// 				transition: all 0.3s;
+// 				transform: rotate(-180deg);
+// 				stroke: #ff4800;
+// 			}
+// 		}
+// 	}
+// }

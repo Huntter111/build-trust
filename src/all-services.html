@@ -3,12 +3,13 @@
 	@@include('html/_head.htm',{ "title":"All secvices" })
 	<body>
 		<div class="wrapper">
-			@@include('html/_header.htm',{})
+			@@include('html/_header-all-services.htm',{})
 			<main class="page">
 				<section class="all-services">
 					<div class="all-services__container">
 						<h2 class="all-services__title title">Послуги</h2>
-						<div data-tabs class="all-services__tabs tabs">
+
+						<div data-tabs data-tabs-hash data-tabs-animate="500" class="all-services__tabs tabs">
 							<nav data-tabs-titles class="all-services__tabs-navigation tabs__navigation">
 								<button type="button" class="all-services__tabs-title tabs__title _tab-active">
 									Усі послуги
@@ -27,6 +28,7 @@
 								</button>
 							</nav>
 							<div data-tabs-body class="all-services__tabs-content tabs__content">
+								<!-- ! Закінчив працювати -->
 								<div class="all-services__tabs-body tabs__body tabs-body-all-services">
 									<div class="tabs-body-all-services__cards cards-services">
 										<div class="cards-services__row">
@@ -41,7 +43,9 @@
 														Наша компанія спеціалізується в будівництві готельних комплексів, де кожен
 														проект — це втілення комфорту та розкіші.
 													</p>
-													<a href="#" class="button-circle cards-services__button"
+													<a
+														href="https://warzone.org.ua/dist/all-services.html#tab-0-1"
+														class="button-circle cards-services__button"
 														><svg>
 															<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
 													></a>
@@ -196,24 +200,467 @@
 										</div>
 									</div>
 								</div>
-								<div class="all-services__tabs-body all-services__tabs-body--hotel-complexes tabs__body">
-									Вміст другого таба
+								<!-- ! Закінчив працювати -->
+								<div class="all-services__tabs-body tabs__body tabs-body-hotel-complexes">
+									<div class="tabs-body-hotel-complexes__items">
+										<!--! row first -->
+										<div class="tabs-body-hotel-complexes__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/hotel-complexes/01.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 1"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body-hotel-complexes__item">
+											<div class="cards-services__card">
+												<h3 class="cards-services__title">
+													Будівництво <span style="color: #de5e2c">готельних комплексів</span>
+												</h3>
+												<div class="cards-services__line"></div>
+												<p class="cards-services__description">
+													Наша компанія спеціалізується в будівництві готельних комплексів, де кожен проект
+													— це втілення комфорту та розкіші.
+												</p>
+												<!-- <a href="#" class="button-circle cards-services__button"
+													><svg>
+														<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
+												></a> -->
+											</div>
+										</div>
+
+										<div class="tabs-body-hotel-complexes__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/hotel-complexes/02.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 2"
+													/>
+												</div>
+											</a>
+										</div>
+
+										<!--! row second -->
+										<div class="tabs-body-hotel-complexes__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-30">
+													<img
+														src="@img/all-services/hotel-complexes/03.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 3"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body-hotel-complexes__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/hotel-complexes/04.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 4"
+													/>
+												</div>
+											</a>
+										</div>
+										<!--! row third -->
+										<div class="tabs-body-hotel-complexes__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/hotel-complexes/05.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 5"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body-hotel-complexes__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-30">
+													<img
+														src="@img/all-services/hotel-complexes/06.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 6"
+													/>
+												</div>
+											</a>
+										</div>
+									</div>
 								</div>
-								<div class="all-services__tabs-body all-services__tabs-body--cottage-towns tabs__body">
-									Вміст третього таба
+								<!-- ! Закінчив працювати -->
+								<div class="all-services__tabs-body tabs__body body-cottage-towns">
+									<div class="body-cottage-towns__items">
+										<!--! row first -->
+
+										<div class="body-cottage-towns__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/cottage-towns/01.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 1"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="body-cottage-towns__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/cottage-towns/02.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 2"
+													/>
+												</div>
+											</a>
+										</div>
+										<!--! row second -->
+										<div class="body-cottage-towns__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper">
+													<img
+														src="@img/all-services/cottage-towns/03.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 3"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="body-cottage-towns__item">
+											<div class="cards-services__card">
+												<h3 class="cards-services__title">
+													Будівництво <span style="color: #de5e2c">Котеджних містечок</span>
+												</h3>
+												<div class="cards-services__line"></div>
+												<p class="cards-services__description">
+													Ми ведемо будівництво котеджних містечок, де архітектура об'єднується з природою,
+													а кожен будинок — це індивідуальна історія вашого комфортного життя та
+													відпочинку.
+												</p>
+												<!-- <a href="#" class="button-circle cards-services__button"
+													><svg>
+														<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
+												></a> -->
+											</div>
+										</div>
+
+										<div class="body-cottage-towns__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/cottage-towns/04.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 4"
+													/>
+												</div>
+											</a>
+										</div>
+
+										<!--! row third -->
+										<div class="body-cottage-towns__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/cottage-towns/05.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 5"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="body-cottage-towns__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/cottage-towns/06.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 6"
+													/>
+												</div>
+											</a>
+										</div>
+									</div>
 								</div>
-								<div class="all-services__tabs-body all-services__tabs-body--food-establish tabs__body">
-									Вміст четвертого таба
+								<!-- ! Закінчив працювати -->
+								<div class="all-services__tabs-body tabs__body tabs-body-food-establish">
+									<div class="tabs-body-food-establish__items">
+										<!--! row first -->
+
+										<div class="tabs-body-food-establish__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper">
+													<img
+														src="@img/all-services/food-establish/01.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 1"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body-food-establish__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper">
+													<img
+														src="@img/all-services/food-establish/02.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 2"
+													/>
+												</div>
+											</a>
+										</div>
+										<!--! row second -->
+										<div class="tabs-body-food-establish__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper">
+													<img
+														src="@img/all-services/food-establish/03.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 3"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body-food-establish__item">
+											<div class="cards-services__card">
+												<h3 class="cards-services__title">
+													Будівництво <span style="color: #de5e2c">Котеджних містечок</span>
+												</h3>
+												<div class="cards-services__line"></div>
+												<p class="cards-services__description">
+													Ми ведемо будівництво котеджних містечок, де архітектура об'єднується з природою,
+													а кожен будинок — це індивідуальна історія вашого комфортного життя та
+													відпочинку.
+												</p>
+												<!-- <a href="#" class="button-circle cards-services__button"
+													><svg>
+														<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
+												></a> -->
+											</div>
+										</div>
+
+										<div class="tabs-body-food-establish__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/food-establish/04.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 4"
+													/>
+												</div>
+											</a>
+										</div>
+
+										<!--! row third -->
+										<div class="tabs-body-food-establish__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper">
+													<img
+														src="@img/all-services/food-establish/05.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 5"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body-food-establish__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper">
+													<img
+														src="@img/all-services/food-establish/06.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 6"
+													/>
+												</div>
+											</a>
+										</div>
+									</div>
 								</div>
-								<div class="all-services__tabs-body all-services__tabs-body--investors tabs__body">
-									Вміст п'ятого таба
+								<!-- ? ПРАЦЮЮ -->
+								<div class="all-services__tabs-body tabs__body tabs-body--investors">
+									<div class="tabs-body--investors__items">
+										<!--! row first -->
+
+										<div class="tabs-body--investors__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper">
+													<img
+														src="@img/all-services/investors/01.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 1"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body--investors__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-30">
+													<img
+														src="@img/all-services/investors/02.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 2"
+													/>
+												</div>
+											</a>
+										</div>
+										<!--! row second -->
+										<div class="tabs-body--investors__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/investors/03.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 3"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body--investors__item">
+											<div class="cards-services__card">
+												<h3 class="cards-services__title">
+													Будівництво <span style="color: #de5e2c">для Інвесторів</span>
+												</h3>
+												<div class="cards-services__line"></div>
+												<p class="cards-services__description">
+													Ми ведемо будівництво котеджних містечок, де архітектура об'єднується з природою,
+													а кожен будинок — це індивідуальна історія вашого комфортного життя та
+													відпочинку.
+												</p>
+												<p class="cards-services__description">
+													З нашим професійним підходом до відбору місць, ви гарантовано отримуєте унікальні
+													можливості для стабільного та прибуткового розвитку. Ми спеціалізуємося на
+													відборі найвигідніших ділянок для вашого інвестиційного успіху.
+												</p>
+												<!-- <a href="#" class="button-circle cards-services__button"
+													><svg>
+														<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
+												></a> -->
+											</div>
+										</div>
+
+										<div class="tabs-body--investors__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-20">
+													<img
+														src="@img/all-services/investors/04.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 4"
+													/>
+												</div>
+											</a>
+										</div>
+
+										<!--! row third -->
+										<div class="tabs-body--investors__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-30">
+													<img
+														src="@img/all-services/investors/05.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 5"
+													/>
+												</div>
+											</a>
+										</div>
+										<div class="tabs-body--investors__item">
+											<a href="#" class="cards-services__image">
+												<div class="cards-services__wrapper cards-services__wrapper--bg-30">
+													<img
+														src="@img/all-services/investors/06.jpg"
+														class="cards-services__ibg ibg"
+														alt="service 6"
+													/>
+												</div>
+											</a>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
+				<section class="contact">
+					<div class="contact__container">
+						<div class="contact__headline">
+							<h2 class="contact__title title">Зв’яжіться з нами</h2>
+							<div class="contact__sub-title">ми будемо раді вам допомогти в реалізації ваших ідей</div>
+						</div>
+						<div class="contact__items contact-item">
+							<div class="contact-item__contacts">
+								<h3 class="contact-item__title">Контакти</h3>
+								<a href="tel:+380996858659" class="contact-item__phone">+380 (99) 685 86 59</a>
+								<a href="https://maps.app.goo.gl/85DofnziogMjvHXY9" class="contact-item__location"
+									>м. Дніпро, вул. Центральна,1А</a
+								>
+								<div class="contact-item__social-media social-media">
+									<a href="#" class="social-media__link"
+										><svg>
+											<use xlink:href="@img/icons/icons.svg#facebook"></use></svg
+									></a>
+									<a href="#" class="social-media__link"
+										><svg>
+											<use xlink:href="@img/icons/icons.svg#instagram"></use></svg
+									></a>
+								</div>
+							</div>
+							<div class="contact-item__form">
+								<form class="form" action="files/sendTelegram.php" method="POST">
+									<div class="form__column">
+										<div class="form__row">
+											<label class="form__label" for="personName">Ваше ім’я*</label>
+											<input
+												id="personName"
+												data-validate="name"
+												autocomplete="off"
+												type="text"
+												name="name"
+												class="input form__input"
+												required
+											/>
+										</div>
+										<div class="form__row">
+											<label class="form__label" for="phoneInput">Номер телефону*</label>
+											<input
+												data-validate="phone"
+												autocomplete="off"
+												type="tel"
+												name="phone"
+												class="input form__input"
+												required
+												id="phoneInput"
+											/>
+										</div>
+										<div class="form__row">
+											<label class="form__label" for="emailInput">Email*</label>
+											<input
+												type="text"
+												name="email"
+												class="input form__input"
+												data-required="email"
+												required
+												id="emailInput"
+												data-validate="email"
+											/>
+										</div>
+									</div>
+									<div class="form__column">
+										<div class="form__row">
+											<label class="form__label" for="textMessage">Коментар</label>
+											<textarea class="form__textarea input" name="message" id="textMessage"></textarea>
+										</div>
+									</div>
+									<button type="submit" class="button-bg form__button">Відправити</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
 			</main>
-			@@include('html/_footer.htm',{})
+			@@include('html/_footer-all-services.htm',{})
 		</div>
 		@@include('html/_js.htm',{})
 	</body>

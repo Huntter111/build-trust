@@ -4,93 +4,6 @@ import { isMobile } from './functions.js';
 import { flsModules } from './modules.js';
 // import Inputmask from 'inputmask';
 
-// ! РОБОЧИЙ
-// function showCustomContent() {
-// 	var select = document.getElementById('custom_select');
-// 	var selectedValue = select.options[select.selectedIndex].value;
-
-// 	// Hide all content elements
-// 	var contentElements = document.getElementsByClassName('map__body');
-// 	for (var i = 0; i < contentElements.length; i++) {
-// 		contentElements[i].style.display = 'none';
-// 	}
-
-// 	// Show the selected content element
-// 	var selectedContent = document.querySelector("[data-content-id='form-" + selectedValue + "']");
-// 	selectedContent.style.display = 'block';
-// }
-
-// // Add event listener for change event
-// var customSelect = document.getElementById('custom_select');
-// customSelect.addEventListener('change', showCustomContent);
-
-// // Call the function to display default content
-// showCustomContent();
-
-// ! NEW BASE
-// document.addEventListener('DOMContentLoaded', function () {
-// 	// hides dropdown content
-// 	var sizeCharts = document.querySelectorAll('.size_chart');
-// 	sizeCharts.forEach(function (chart) {
-// 		chart.style.display = 'none';
-// 	});
-
-// 	// unhides first option content
-// 	document.getElementById('option1').style.display = 'block';
-
-// 	// listen to dropdown for change
-// 	document.getElementById('size_select').addEventListener('change', function () {
-// 		// rehide content on change
-// 		sizeCharts.forEach(function (chart) {
-// 			chart.style.display = 'none';
-// 		});
-// 		// unhides current item
-// 		document.getElementById(this.value).style.display = 'block';
-// 	});
-// });
-// ????? ===================================================
-// document.addEventListener('DOMContentLoaded', function () {
-// 	// hides dropdown content
-// 	var sizeCharts = document.querySelectorAll('.map__body');
-// 	sizeCharts.forEach(function (chart) {
-// 		chart.style.display = 'none';
-// 	});
-
-// 	// unhides first option content
-// 	document.getElementById('option1').style.display = 'block';
-
-// 	// listen to dropdown for change
-// 	document.getElementById('size_select').addEventListener('change', function () {
-// 		// rehide content on change
-// 		sizeCharts.forEach(function (chart) {
-// 			chart.style.display = 'none';
-// 		});
-// 		// unhides current item
-// 		document.getElementById(this.value).style.display = 'block';
-// 	});
-// });
-// ????? =================================================== Основний робочий
-// function showCustomContent(selectedValue) {
-// 	// Hide all content elements
-// 	var contentElements = document.getElementsByClassName('map__body');
-// 	for (var i = 0; i < contentElements.length; i++) {
-// 		contentElements[i].style.display = 'none';
-// 	}
-
-// 	// Show the selected content element
-// 	var selectedContent = document.querySelector("[data-content-id='form-" + selectedValue + "']");
-// 	selectedContent.style.display = 'block';
-// }
-
-// document.addEventListener('selectCallback', function (e) {
-// 	const selectedValue = e.detail.select.value;
-
-// 	// Call the function to display content based on the selected value
-// 	showCustomContent(selectedValue);
-// });
-
-// // Call the function to display default content
-// showCustomContent(document.getElementById('custom_select').value);
 // ? ОСНОВНИЙ ПЕРЕРОБЛЕНИЙ
 function showCustomContent(selectedValue) {
 	// Hide all content elements
@@ -124,31 +37,7 @@ if (mapContainer) {
 	showCustomContent(document.getElementById('custom_select').value);
 }
 // ! =================================================== ТУЛТІП перший
-// document.addEventListener('DOMContentLoaded', function () {
-// 	const tooltipTrigger = document.getElementById('tooltip-trigger');
-// 	const tooltip = document.getElementById('tooltip');
 
-// 	tooltipTrigger.addEventListener('mouseover', function () {
-// 		tooltip.classList.add('active');
-// 	});
-
-// 	tooltipTrigger.addEventListener('mouseout', function () {
-// 		tooltip.classList.remove('active');
-// 	});
-
-// 	tooltip.addEventListener('mouseover', function () {
-// 		tooltip.classList.add('active');
-// 	});
-
-// 	tooltip.addEventListener('mouseout', function () {
-// 		tooltip.classList.remove('active');
-// 	});
-
-// 	// Додатково можна використовувати подію кліку
-// 	tooltipTrigger.addEventListener('click', function () {
-// 		tooltip.classList.toggle('active');
-// 	});
-// });
 // ! =================================================== ТУЛТІП другий
 document.addEventListener('DOMContentLoaded', function () {
 	const tooltipTriggers = document.querySelectorAll('.tooltip-trigger');
@@ -171,4 +60,37 @@ document.addEventListener('DOMContentLoaded', function () {
 			tooltips[index].classList.remove('active');
 		});
 	});
+});
+// ! SUB-MENU
+
+//  ?/ PRELOADER
+document.addEventListener('DOMContentLoaded', function () {
+	// Перевірка наявності класу "touch" в тегу <html>
+	let htmlElement = document.documentElement;
+
+	if (htmlElement.classList.contains('touch')) {
+		// Отримання елемента з ідентифікатором "menuOpen"
+		let menuOpenElement = document.getElementById('menuOpen');
+
+		// Перевірка, чи елемент існує
+		if (menuOpenElement) {
+			// Додавання обробника події click
+			menuOpenElement.addEventListener('click', function () {
+				// Включення або вимкнення класу "sub-menu-open"
+				menuOpenElement.classList.toggle('sub-menu-open');
+			});
+
+			// Додавання обробника події click для виявлення кліка поза елементом
+			document.addEventListener('click', function (event) {
+				let isClickInside = menuOpenElement.contains(event.target);
+
+				if (!isClickInside) {
+					// Якщо клік був здійснений поза межами елемента, видаліть клас
+					menuOpenElement.classList.remove('sub-menu-open');
+				}
+			});
+		} else {
+			console.error("Елемент з ідентифікатором 'menuOpen' не знайдений.");
+		}
+	}
 });

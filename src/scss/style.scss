@@ -68,6 +68,9 @@ body {
 		touch-action: none;
 		overscroll-behavior: none;
 	}
+	.loaded & {
+		overflow: visible;
+	}
 	// Сайт завантажений
 	.loaded & {
 	}
@@ -78,7 +81,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	// position: relative;
+	position: relative;
 	@supports (overflow: clip) {
 		overflow: clip;
 	}

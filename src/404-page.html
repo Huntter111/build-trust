@@ -3,7 +3,7 @@
 	@@include('html/_head.htm',{ "title":"Page 404" })
 	<body>
 		<div class="wrapper">
-			@@include('html/_header.htm',{})
+			@@include('html/_header-all-services.htm',{})
 			<main class="page">
 				<section class="page-404">
 					<div class="page-404__container">
@@ -12,7 +12,7 @@
 								<span style="color: #de5e2c">404</span>
 							</h1>
 							<div class="page-404__text">Упс...щось пішло не так</div>
-							<a href="" class="page-404__button button-bg"
+							<a href="index.html" class="page-404__button button-bg"
 								><span>до головної сторінки</span>
 								<svg>
 									<use xlink:href="@img/icons/icons.svg#arrow-btn"></use></svg
@@ -21,7 +21,7 @@
 					</div>
 				</section>
 			</main>
-			@@include('html/_footer.htm',{})
+			@@include('html/_footer-all-services.htm',{})
 		</div>
 		@@include('html/_js.htm',{})
 	</body>

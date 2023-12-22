@@ -1,4 +1,4 @@
-//====================================================================================================
+//
 // ! MAIN_PAGE
 .main-page {
 	background:
@@ -147,6 +147,13 @@
 	}
 	&__image-ibg {
 		position: relative;
+		transform: translateY(30%);
+		opacity: 0;
+		transition: all 1s;
+		._watcher-view & {
+			transform: translateY(0%);
+			opacity: 1;
+		}
 		&::before {
 			content: '';
 			position: absolute;
@@ -177,20 +184,47 @@
 			justify-self: end;
 			max-width: toRem(210);
 			max-height: toRem(243);
+
 			&::before {
 				background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
 			}
 			@media (max-width: $mobileSmall) {
 				order: 1;
 			}
+			@media (min-width: $mobile) {
+				opacity: 0;
+				transition: all 1s;
+				transform: translateY(-20%);
+				._watcher-view & {
+					transform: translateY(0%);
+					opacity: 1;
+				}
+			}
+			// @media (max-width: $mobile) {
+			// 	transform: translateY(30%);
+			// 	._watcher-view & {
+			// 		transform: translateY(0%);
+			// 		opacity: 1;
+			// 	}
+			// }
 		}
 		&:nth-child(2) {
 			align-self: end;
 			max-width: toRem(331);
 			max-height: toRem(200);
 			// aspect-ratio: 331 / 200;
+
 			&::before {
 				background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+			}
+			@media (min-width: $mobile) {
+				transform: translateY(-20%);
+				opacity: 0;
+				transition: all 1s;
+				._watcher-view & {
+					transform: translateY(0%);
+					opacity: 1;
+				}
 			}
 		}
 		&:nth-child(3) {
@@ -201,9 +235,17 @@
 			@media (max-width: $mobileSmall) {
 				order: -1;
 			}
-
 			&::before {
 				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+			@media (min-width: $mobile) {
+				transform: translateY(20%);
+				opacity: 0;
+				transition: all 1s;
+				._watcher-view & {
+					transform: translateY(0%);
+					opacity: 1;
+				}
 			}
 		}
 		&:nth-child(4) {
@@ -215,6 +257,15 @@
 			// aspect-ratio: 210 / 247;
 			&::before {
 				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+			@media (min-width: $mobile) {
+				transform: translateY(30%);
+				opacity: 0;
+				transition: all 1s;
+				._watcher-view & {
+					transform: translateY(0%);
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -522,12 +573,17 @@
 			// top: 50%;
 			// display: block;
 			button {
-				transform: translateY(50%);
+				transform: translateY(94%);
+				// transform: translateX(-10%);
 				&:nth-child(1) {
-					padding-left: toRem(10);
+					margin-left: toRem(-3);
 				}
 				&:nth-child(2) {
-					padding-right: toRem(10);
+					margin-right: toRem(-3);
+				}
+				@media (max-width: $mobile) {
+					width: toRem(48);
+					height: toRem(48);
 				}
 			}
 			& > ::after {
@@ -581,7 +637,7 @@
 		@media (any-hover: hover) {
 			&:hover {
 				.swiper-slide-project__block-hover {
-					transition: all 0.3s;
+					transition: all 0.5s;
 					transform: translateY(0);
 				}
 				.swiper-slide-project__image-wrapper {
@@ -590,7 +646,9 @@
 					}
 				}
 				.swiper-slide-project__icon {
-					display: none;
+					transition: all 0.2s;
+					// display: none;
+					opacity: 0;
 				}
 			}
 		}
@@ -727,25 +785,6 @@
 	}
 }
 
-.button-circle {
-}
-.title {
-}
-.swiper {
-}
-.swiper-wrapper {
-}
-.swiper-slide {
-}
-.swiper-slide-project {
-}
-.ibg {
-}
-.swiper-button-prev {
-}
-.swiper-button-next {
-}
-
 //====================================================================================================
 //====================================================================================================
 // ! PARTNERS
@@ -792,8 +831,8 @@
 		}
 		img {
 			border-radius: 50%;
-			max-width: toRem(279);
-			min-height: toRem(276);
+			max-width: 100%;
+			max-height: toRem(276);
 		}
 	}
 
@@ -860,7 +899,7 @@
 		}
 	}
 
-	&__image--wrapper {
+	&__image-wrapper {
 		position: relative;
 		&::before {
 			content: '';
@@ -894,8 +933,6 @@
 	&--second {
 	}
 }
-
-//====================================================================================================
 // ! Це тултіп
 .tooltip-wrapper {
 	position: absolute;
@@ -927,7 +964,7 @@
 	// transform: translateX(-50%);
 	padding: toRem(32) toRem(28);
 	@media (max-width: $tablet) {
-		padding: toRem(8) toRem(7);
+		padding: toRem(7) toRem(10);
 		font-size: toRem(14);
 	}
 	background-color: #1c1c1c;

@@ -5,6 +5,7 @@
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<!-- <div class="text-blob">BUILD TRUST</div> -->
 				<section class="main-page">
 					<div class="main-page__container">
 						<div class="main-page__headline">
@@ -14,7 +15,7 @@
 							<h2 class="main-page__sub-title">
 								На кожному кроці вашого будівельного шляху — наша відданість якості та точності.
 							</h2>
-							<a href="#" class="button-bg main-page__button"
+							<a href="#" data-goto=".contact" class="button-bg main-page__button"
 								>Дізнатися більше
 								<svg>
 									<use xlink:href="@img/icons/icons.svg#arrow-btn"></use>
@@ -46,7 +47,7 @@
 									Спеціалізуємось на будівництві готельних комплексів, котеджних містечок та закладів
 									громадського харчування
 								</p>
-								<div data-watch class="about-us__counters counters-about-us counters">
+								<div data-watch data-watch-once class="about-us__counters counters-about-us counters">
 									<div class="counters-about-us__item counters__item">
 										<div data-digits-counter class="counters-about-us__value">50+</div>
 										<div class="counters-about-us__text">задоволених клієнтів</div>
@@ -62,23 +63,19 @@
 								</div>
 							</div>
 
-							<div class="about-us__images">
+							<div data-watch data-watch-threshold="0.3" class="about-us__images">
 								<div class="about-us__image-ibg">
-									<img class="ibg" src="@img/about-us/image-01.png" alt="" />
+									<img class="ibg" src="@img/about-us/image-01.png" alt="image build 1" />
 								</div>
 								<div class="about-us__image-ibg">
-									<img class="ibg" src="@img/about-us/image-02.png" alt="" />
+									<img class="ibg" src="@img/about-us/image-02.png" alt="image build 2" />
 								</div>
 								<div class="about-us__image-ibg">
-									<img class="ibg" src="@img/about-us/image-03.png" alt="" />
+									<img class="ibg" src="@img/about-us/image-03.png" alt="image build 3" />
 								</div>
 								<div class="about-us__image-ibg">
-									<img class="ibg" src="@img/about-us/image-04.png" alt="" />
+									<img class="ibg" src="@img/about-us/image-04.png" alt="image build 4" />
 								</div>
-								<!-- <img class="about-us__image ibg bg-1" src="@img/about-us/image-01.png" alt="Image" />
-								<img class="some-block__image ibg bg-2" src="@img/about-us/image-02.png" alt="Image" />
-								<img class="some-block__image ibg bg-3" src="@img/about-us/image-03.png" alt="Image" />
-								<img class="some-block__image ibg bg-4" src="@img/about-us/image-04.png" alt="Image" /> -->
 							</div>
 						</div>
 					</div>
@@ -116,38 +113,66 @@
 								<h3 class="card-service__title">
 									Будівництво <span style="color: #de5e2c">готельних комплексів</span>
 								</h3>
-
 								<p class="card-service__description">
 									Наша компанія спеціалізується в будівництві готельних комплексів, де кожен проект — це
 									втілення комфорту та розкіші.
 								</p>
-								<a href="#" class="button-circle card-service__button"
+								<a
+									href="https://warzone.org.ua/dist/all-services.html#tab-0-1"
+									class="button-circle card-service__button"
+									target="_blank"
 									><svg>
 										<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
 								></a>
 							</div>
 
-							<a href="#" class="card-service__image">
+							<a
+								href="https://warzone.org.ua/dist/all-services.html#tab-0-1"
+								class="card-service__image"
+								target="_blank"
+							>
 								<div class="card-service__wrapper card-service__wrapper--bg-20">
-									<img src="@img/services/01.jpg" class="card-service__ibg ibg" alt="service 1" />
+									<img
+										src="@img/services/01.jpg"
+										class="card-service__ibg ibg"
+										alt="service 1"
+										loading="lazy"
+									/>
 								</div>
 							</a>
-
-							<a href="#" class="card-service__image">
+							<a
+								href="https://warzone.org.ua/dist/all-services.html#tab-0-1"
+								class="card-service__image"
+								target="_blank"
+							>
 								<div class="card-service__wrapper card-service__wrapper--bg-20">
-									<img src="@img/services/02.jpg" class="card-service__ibg ibg" alt="service 2" />
+									<img
+										src="@img/services/02.jpg"
+										class="card-service__ibg ibg"
+										alt="service 2"
+										loading="lazy"
+									/>
 								</div>
 							</a>
 							<!-- ! row-reverse -->
-							<a href="#" class="card-service__image">
+							<a href="https://warzone.org.ua/dist/all-services.html#tab-0-2" class="card-service__image">
 								<div class="card-service__wrapper card-service__wrapper--bg-20">
-									<img src="@img/services/04.jpg" class="card-service__ibg ibg" alt="service 3" />
+									<img
+										src="@img/services/04.jpg"
+										class="card-service__ibg ibg"
+										alt="service 3"
+										loading="lazy"
+									/>
 								</div>
 							</a>
-
-							<a href="#" class="card-service__image">
+							<a href="https://warzone.org.ua/dist/all-services.html#tab-0-2" class="card-service__image">
 								<div class="card-service__wrapper card-service__wrapper--bg-40">
-									<img src="@img/services/03.jpg" class="card-service__ibg ibg" alt="service 3" />
+									<img
+										src="@img/services/03.jpg"
+										class="card-service__ibg ibg"
+										alt="service 3"
+										loading="lazy"
+									/>
 								</div>
 							</a>
 							<div class="card-service__info">
@@ -158,7 +183,10 @@
 									Будівництво котеджних містечок — наше мистецтво та ваша можливість створити оселю, де кожен
 									день — особлива історія.
 								</p>
-								<a href="#" class="button-circle card-service__button"
+								<a
+									href="https://warzone.org.ua/dist/all-services.html#tab-0-2"
+									class="button-circle card-service__button"
+									target="_blank"
 									><svg>
 										<use xlink:href="@img/icons/icons.svg#arrow-bold-btn"></use></svg
 								></a>
@@ -166,7 +194,7 @@
 							<!--! row -->
 						</div>
 
-						<a href="#" class="button-bg services__button"
+						<a href="all-services.html" class="button-bg services__button"
 							>Усі послуги
 							<svg>
 								<use xlink:href="@img/icons/icons.svg#arrow-btn"></use></svg
@@ -191,6 +219,7 @@
 													src="@img/projects/project-01.jpg"
 													class="swiper-slide-project__ibg ibg"
 													alt="project 1"
+													loading="lazy"
 												/>
 												<div class="swiper-slide-project__icon">
 													<img src="@img/projects/icons/icon-01.svg" alt="icon" />
@@ -224,6 +253,7 @@
 													src="@img/projects/project-02.jpg"
 													class="swiper-slide-project__ibg ibg"
 													alt="project 2"
+													loading="lazy"
 												/>
 												<div class="swiper-slide-project__icon">
 													<img src="@img/projects/icons/icon-02.svg" alt="icon" />
@@ -254,7 +284,8 @@
 												<img
 													src="@img/projects/project-03.jpg"
 													class="swiper-slide-project__ibg ibg"
-													alt="project 2"
+													loading="lazy"
+													alt="project 3"
 												/>
 												<div class="swiper-slide-project__icon">
 													<img src="@img/projects/icons/icon-03.svg" alt="icon" />
@@ -285,7 +316,8 @@
 												<img
 													src="@img/projects/project-04.jpg"
 													class="swiper-slide-project__ibg ibg"
-													alt="project 2"
+													loading="lazy"
+													alt="project 4"
 												/>
 												<div class="swiper-slide-project__icon">
 													<img src="@img/projects/icons/icon-04.svg" alt="icon" />
@@ -316,7 +348,8 @@
 												<img
 													src="@img/projects/project-05.jpg"
 													class="swiper-slide-project__ibg ibg"
-													alt="project 2"
+													loading="lazy"
+													alt="project 5"
 												/>
 												<div class="swiper-slide-project__icon">
 													<img src="@img/projects/icons/icon-05.svg" alt="icon" />
@@ -351,7 +384,7 @@
 						<div class="partners__items">
 							<div class="partners__item partner">
 								<div class="partner__image">
-									<img src="@img/partners/partner-01.jpg" alt="Партнер: Єгор Клименко" />
+									<img src="@img/partners/partner-01.jpg" alt="Партнер: Єгор Клименко" loading="lazy" />
 								</div>
 								<h3 class="partner__name">Єгор Клименко</h3>
 								<div class="partner__description">
@@ -365,7 +398,11 @@
 							</div>
 							<div class="partners__item partner">
 								<div class="partner__image">
-									<img src="@img/partners/partner-02.jpg" alt="Партнер:Ільчишен Ігор Олегович" />
+									<img
+										src="@img/partners/partner-02.jpg"
+										alt="Партнер:Ільчишен Ігор Олегович"
+										loading="lazy"
+									/>
 								</div>
 								<h3 class="partner__name">Ільчишен Ігор Олегович</h3>
 								<div class="partner__description">Засновник будівельної компанії “Build Trust”</div>
@@ -391,7 +428,7 @@
 					<div class="map__wrapper-maps">
 						<div data-content-id="form-1" class="map__body body-map">
 							<div class="body-map__image body-map__image--form-1">
-								<div class="body-map__image--wrapper">
+								<div class="body-map__image-wrapper">
 									<img src="@img/maps/map-011.png" alt="карта: Вінниця" class="body-map__ibg ibg" />
 								</div>
 								<div class="body-map__tooltip-wrapper tooltip-wrapper">
@@ -521,6 +558,6 @@
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
-		@@include('html/_js.htm',{})
+		@@include('html/_js.htm',{}) @@include('html/_preloader.htm',{})
 	</body>
 </html>

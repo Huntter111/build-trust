@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$message = $_POST["message"];
 
 	// Налаштування Telegram-бота
-	$botToken = "6326698251:AAG4khK9I-svNecAgxBSln9_g1UijVHI-6Y";
+	$botToken = "6493891981:AAHWBa2_jA_bprqrdywwK69mxaF1Js_rVXk";
 	$chatId = "-977034876";
 
 	// Формування повідомлення
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$text .= "<b>Iм'я:</b> " . $namePerson . "\n";
 	$text .= "<b>Телефон:</b> " . $phoneNumber . "\n";
 	$text .= "<b>Пошта:</b> " . $emailAddres . "\n";
-	$text .= "<b>Повідомлення</b> " . $message;
+	$text .= "<b>Коментар</b> " . $message;
 
 	// Відправка повідомлення в Telegram
 	$url = "https://api.telegram.org/bot" . $botToken . "/sendMessage";

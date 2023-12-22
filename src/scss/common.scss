@@ -28,3 +28,8 @@
 	font-weight: 700;
 	line-height: normal;
 }
+.text-blob {
+	@include adaptiveValue('font-size', 120, 32);
+	font-family: 'Geometria';
+	font-weight: 700;
+}
