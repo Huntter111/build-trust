@@ -1,5 +1,5 @@
 .thank-you-page {
-	@include adaptiveValue('padding-top', 263, 150);
+	@include adaptiveValue('padding-top', 263, 200);
 	@include adaptiveValue('padding-bottom', 168, 100);
 	background: #17302f url('@img/thank-you-page/background-1.png') 50% / cover no-repeat;
 	&__container {

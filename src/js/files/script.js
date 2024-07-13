@@ -36,7 +36,6 @@ if (mapContainer) {
 	// Call the function to display default content
 	showCustomContent(document.getElementById('custom_select').value);
 }
-// ! =================================================== ТУЛТІП перший
 
 // ! =================================================== ТУЛТІП другий
 document.addEventListener('DOMContentLoaded', function () {

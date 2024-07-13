@@ -266,13 +266,13 @@
 
 	&__title {
 		@include adaptiveValue('font-size', 18, 16, 0, 1440, 991);
-		font-style: normal;
+
 		font-weight: 700;
 		line-height: 1.5;
 		text-transform: uppercase;
-		max-width: toRem(317);
+		max-width: toRem(295);
 		@include adaptiveValue('padding-top', 41, 20, 0, 1440, 991);
-		@include adaptiveValue('padding-left', 24, 10, 0, 1440, 991);
+		@include adaptiveValue('margin-left', 24, 10, 0, 1440, 991);
 		@include adaptiveValue('padding-bottom', 31, 10, 0, 1440, 991);
 	}
 	&__description {
@@ -281,7 +281,6 @@
 
 		@include adaptiveValue('font-size', 18, 16, 0, 1440, 991);
 		margin-bottom: toRem(24);
-		font-style: normal;
 		line-height: 1.6;
 		@media (max-width: $tablet) {
 			line-height: 1.4;

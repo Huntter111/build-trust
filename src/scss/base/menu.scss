@@ -18,7 +18,7 @@
 				content: '';
 				position: fixed;
 				width: 100%;
-				height: toRem(60.44);
+				height: toRem(68.3);
 				right: -100%;
 				top: 0;
 				transition: right 0.3s;
@@ -38,6 +38,7 @@
 		list-style-type: none;
 		padding: 0;
 		display: flex;
+		z-index: 10;
 		@include adaptiveValue('column-gap', 46, 30, 0, 1440, 767);
 		row-gap: toRem(10);
 		flex-wrap: wrap;
@@ -58,19 +59,11 @@
 	&__item {
 		display: flex;
 		gap: toRem(8);
-		position: relative;
+		// position: relative;
 		align-items: center;
-		// transition: all 0.3s;
-		// @media (any-hover: hover) {
-		// 	// transition: all 0.3s;
-		// 	&:hover {
-		// 		.arrow {
-		// 			transform: rotate(-180deg) translateY(-4px);
-		// 			stroke: #ff4800;
-		// 		}
-		// 	}
-		// }
+
 		&--arrow {
+			position: relative;
 			align-items: center;
 		}
 	}
@@ -143,22 +136,23 @@
 	}
 }
 
-// !
+// ! SUB MENU
 
 .sub-menu__list {
 	display: none;
 	position: absolute;
 	left: 0;
-	top: 37px;
+	top: toRem(37);
 	padding: toRem(24) toRem(22);
 	border: toRem(0.5) solid #de5e2c;
 	background: #eaedef;
 	color: #181616;
-	z-index: 20;
+
 	min-width: toRem(240);
 	@media (max-width: $mobile) {
 		left: -70px;
 	}
+	z-index: 100;
 }
 .sub-menu__link {
 	transition: all 0.15s;
@@ -185,9 +179,11 @@
 .menu__item {
 	@media (any-hover: hover) {
 		&:hover {
+			position: relative;
 			.sub-menu__list {
 				display: block;
 				cursor: pointer;
+				z-index: 20;
 				&::before {
 					content: '';
 					display: block;
@@ -212,17 +208,16 @@
 		padding-bottom: toRem(12);
 	}
 }
-// .sub-menu__list {
-// 	display: none; // За замовчуванням приховуємо підменю
-// }
 
 .sub-menu-open .sub-menu__list {
 	display: block; // Показуємо підменю, якщо є клас sub-menu-open
+	z-index: 100;
 }
 .sub-menu-open {
 	.menu__item--arrow {
 		color: #ff4800;
 	}
+
 	.arrow {
 		transition: all 0.3s;
 		transform: rotate(-180deg);
@@ -232,26 +227,10 @@
 		color: #ff4800;
 	}
 }
-// .sub-menu-open {
-// }
+
 .arrow {
 	transition: all 0.3s;
 	display: inline-block;
 	vertical-align: middle;
 	stroke: #eaedef;
 }
-// .menu__item.touch .sub-menu__list {
-// 	display: block;
-// }
-
-// .touch .menu__item--arrow {
-// 	@media (any-hover: hover) {
-// 		&:hover {
-// 			.arrow {
-// 				transition: all 0.3s;
-// 				transform: rotate(-180deg);
-// 				stroke: #ff4800;
-// 			}
-// 		}
-// 	}
-// }

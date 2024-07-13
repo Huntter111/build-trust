@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation, EffectFade } from 'swiper/modules';
+import { Navigation, EffectFade, Mousewheel } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -24,7 +24,18 @@ import '../../scss/libs/swiper.scss';
 // Повний набір стилів з node_modules
 // import 'swiper/css';
 
-// Ініціалізація слайдерів
+// ! Для визначення Trackpad
+let isTrackpad = false;
+let timeout;
+
+window.onwheel = function (e) {
+	clearTimeout(timeout);
+	if (e.deltaMode === 0) isTrackpad = true;
+	timeout = setTimeout(() => {
+		isTrackpad = false;
+	}, 50);
+};
+
 function initSliders() {
 	// Список слайдерів
 	// Перевіряємо, чи є слайдер на сторінці
@@ -35,7 +46,7 @@ function initSliders() {
 			// Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation, EffectFade],
+			modules: [Navigation, Mousewheel, EffectFade],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -50,6 +61,13 @@ function initSliders() {
 			//preloadImages: false,
 			//lazy: true,
 
+			// Додаємо параметр mousewheel
+			mousewheel: {
+				releaseOnEdges: true,
+				// ! Для визначення Trackpad
+				eventsTarged: isTrackpad ? '.project__slider' : null,
+			},
+
 			// Ефекти
 			// effect: 'fade',
 
@@ -60,19 +78,19 @@ function initSliders() {
 
 			// Пагінація
 			/*
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			*/
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      */
 
 			// Скроллбар
 			/*
-			scrollbar: {
-				el: '.swiper-scrollbar',
-				draggable: true,
-			},
-			*/
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+      },
+      */
 
 			// Кнопки "вліво/вправо"
 			navigation: {
@@ -105,6 +123,7 @@ function initSliders() {
 		});
 	}
 }
+
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
 function initSlidersScroll() {
 	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');

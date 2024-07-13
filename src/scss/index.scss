@@ -8,6 +8,7 @@
 	// 	linear-gradient(0deg, rgba(28, 28, 28, 0.4) 0%, rgba(28, 28, 28, 0.4) 100%),
 	// 	url('@img/main/background.jpg'),
 	// 	50% / cover no-repeat;
+
 	&__container {
 		position: relative;
 		display: flex;
@@ -16,8 +17,21 @@
 		@media (min-width: $tablet) {
 			height: 89vh;
 		}
+		// ! Якщо висота сторінки більша за 1350 то не виконується
+		// @media (min-width: $tablet) and (max-height: em(1350)) {
+		// 	height: 89vh;
+		// }
+		// ! ========================================================
+		// transform: translateY(50%);
+		// opacity: 0;
+		// transition: all 1.2s;
+		// .loaded & {
+		// 	transform: translateY(0%);
+		// 	opacity: 1;
+		// }
 	}
-
+	// @media (max-height: em(1000)) {
+	// }
 	&__headline {
 		padding-top: toRem(200);
 		padding-bottom: toRem(100);
@@ -28,6 +42,30 @@
 		flex-direction: column;
 		align-items: center;
 		row-gap: toRem(24);
+		// ! title
+		& > :nth-child(1) {
+			transform: translateX(75%);
+			opacity: 0;
+			&._watcher-view {
+				animation: animationTitle 0.8s ease-in-out 0.1s forwards;
+			}
+		}
+		// ! Subtitle
+		& > :nth-child(2) {
+			transform: translateX(50%);
+			opacity: 0;
+			&._watcher-view {
+				animation: animationTitle 0.8s ease-in-out 0.7s forwards;
+			}
+		}
+		// ! Button
+		& > :nth-child(3) {
+			transform: translateX(25%);
+			opacity: 0;
+			&._watcher-view {
+				animation: animationTitle 0.7s ease-in-out 1.4s forwards;
+			}
+		}
 	}
 
 	&__title {
@@ -74,6 +112,33 @@
 		@media (max-width: $tablet) {
 			position: relative;
 		}
+
+		opacity: 0;
+		&._watcher-view {
+			animation: animationTitle 0.8s ease-in-out 2.1s forwards;
+		}
+	}
+}
+@keyframes animationTitle {
+	0% {
+		// transform: translateX(50%);
+		// opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+@keyframes socialandbutton {
+	0% {
+		// transform: translateX(50%);
+		// opacity: 0;
+	}
+
+	100% {
+		// transform: translateX(0%);
+		opacity: 1;
 	}
 }
 .social-media {
@@ -420,7 +485,9 @@
 		}
 		column-gap: toRem(30);
 		@include adaptiveValue('row-gap', 56, 30, 0, 1440, 768);
-
+		@media (max-width: $tablet) {
+			gap: toRem(20);
+		}
 		// &:nth-child(3n + 1) {
 		// 	grid-auto-flow: column-reverse;
 		// }
@@ -470,7 +537,7 @@
 	&__image {
 		overflow: hidden;
 
-		@media (max-width: em(600)) {
+		@media (max-width: $tablet) {
 			&:nth-child(4n) {
 				order: 2;
 			}
@@ -482,7 +549,7 @@
 	&__wrapper {
 		max-width: toRem(450);
 		max-height: toRem(618);
-
+		// height: 100%;
 		position: relative;
 		transition: all 1s;
 		@media (any-hover: hover) {
@@ -504,6 +571,11 @@
 		&--bg-20 {
 			&::before {
 				background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+			}
+		}
+		&--bg-30 {
+			&::before {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
 			}
 		}
 		&--bg-40 {
@@ -585,6 +657,13 @@
 					width: toRem(48);
 					height: toRem(48);
 				}
+				@media (any-hover: hover) {
+					&:hover {
+						&::after {
+							color: #ff4800;
+						}
+					}
+				}
 			}
 			& > ::after {
 				position: absolute;
@@ -618,17 +697,47 @@
 			top: toRem(24);
 			height: toRem(32);
 			right: percent(84, $maxWidthContainer);
-			& > ::after {
-				color: #eaedef;
-				font-size: toRem(26) !important;
-				width: toRem(32);
-			}
+			// & > ::after {
+			// 	color: #eaedef;
+			// 	font-size: toRem(26) !important;
+			// 	width: toRem(32);
+			// 	transition: all 0.3s;
+			// }
 		}
 	}
 	&__swiper-button-prev {
+		@media (min-width: $mobile) {
+			left: -10px !important;
+		}
+		&::after {
+			color: #eaedef;
+			font-size: toRem(26) !important;
+			width: toRem(48) !important;
+			transition: all 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::after {
+					color: #ff4800;
+				}
+			}
+		}
 	}
 
 	&__swiper-button-next {
+		&::after {
+			color: #eaedef;
+			font-size: toRem(26) !important;
+			width: toRem(48) !important;
+			transition: all 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::after {
+					color: #ff4800;
+				}
+			}
+		}
 	}
 }
 
@@ -641,13 +750,17 @@
 					transform: translateY(0);
 				}
 				.swiper-slide-project__image-wrapper {
-					&::before {
-						background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+					transition: all 0.3s;
+					&--bg-50,
+					&--bg-60 {
+						&::before {
+							background-color: rgba(0, 0, 0, 0.2);
+						}
 					}
 				}
 				.swiper-slide-project__icon {
 					transition: all 0.2s;
-					// display: none;
+
 					opacity: 0;
 				}
 			}
@@ -658,18 +771,6 @@
 	}
 	&__image-wrapper {
 		position: relative;
-		// &::after {
-		// 	position: absolute;
-		// 	content: '';
-		// 	top: 0;
-		// 	left: 0;
-		// 	width: 100%;
-		// 	height: 100%;
-		// 	background:
-		// 		linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
-		// 		url('@img/projects/icons/icon-01.svg') 50% /150px 150px no-repeat;
-		// 	z-index: 6;
-		// }
 		&::before {
 			content: '';
 			position: absolute;
@@ -679,27 +780,28 @@
 			width: 100%;
 			height: 100%;
 			z-index: 2;
+			transition: all 0.3s;
 		}
 		&--bg-50 {
 			&::before {
-				background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+				background-color: rgba(0, 0, 0, 0.5);
 				@media (hover: none) {
-					background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+					background-color: rgba(0, 0, 0, 0.2);
 				}
 			}
 			@media (any-hover: hover) {
 				&:hover {
 					&::before {
-						background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+						background-color: rgba(0, 0, 0, 0.2);
 					}
 				}
 			}
 		}
 		&--bg-60 {
 			&::before {
-				background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+				background-color: rgba(0, 0, 0, 0.6);
 				@media (hover: none) {
-					background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+					background-color: rgba(0, 0, 0, 0.2);
 				}
 			}
 
@@ -709,7 +811,7 @@
 					// 	transform: scale(1.2);
 					// }
 					&::before {
-						background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+						background-color: rgba(0, 0, 0, 0.2);
 					}
 					.swiper-slide-project__icon {
 						display: none;
@@ -735,7 +837,7 @@
 
 	&__block-hover {
 		// display: none;
-		background: rgba(24, 22, 22, 0.7);
+		background-color: rgba(24, 22, 22, 0.7);
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -894,8 +996,10 @@
 			position: relative;
 		}
 		&--form-2 {
+			position: relative;
 		}
 		&--form-3 {
+			position: relative;
 		}
 	}
 
@@ -934,26 +1038,79 @@
 	}
 }
 // ! Це тултіп
+.tooltip-trigger {
+	@media (max-width: $tablet) {
+		img {
+			width: toRem(30);
+			height: toRem(30);
+		}
+	}
+	// @media (max-width: $tablet) {
+	// 	width: toRem(30);
+	// 	height: toRem(30);
+	// }
+}
 .tooltip-wrapper {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	&--vinnitsa {
+		& > :nth-child(1) {
+			position: absolute;
+			left: 47%;
+			top: 33%;
+			@media (max-width: $mobile) {
+				left: 58%;
+				top: 27%;
+			}
+		}
+		& > :nth-child(2) {
+			position: absolute;
+			left: 48%;
+			top: 38%;
+			@media (max-width: $mobile) {
+				left: 60%;
+				top: 34%;
+			}
+		}
+		& > :nth-child(3) {
+			position: absolute;
+			left: 30%;
+			top: 58.6%;
+			@media (max-width: $mobile) {
+				left: 39%;
+				top: 50.6%;
+			}
+		}
+	}
+	&--bukovel {
+		& > :nth-child(1) {
+			position: absolute;
+			left: 47%;
+			top: 56%;
+			@media (max-width: $mobile) {
+				left: 57%;
+				top: 57%;
+			}
+		}
+	}
+	&--yablunytsya {
+		& > :nth-child(1) {
+			position: absolute;
+			left: 47%;
+			top: 70%;
+			@media (max-width: $mobile) {
+				left: 64%;
+				top: 70%;
+			}
+		}
+	}
 }
 .tooltip-container {
 	position: relative;
 	display: inline-block;
-	&:nth-child(1) {
-		position: absolute;
-		left: 22%;
-		top: 36%;
-	}
-	&:nth-child(2) {
-		position: absolute;
-		left: 63.5%;
-		top: 58%;
-	}
 }
 
 .tooltip {
@@ -1106,6 +1263,9 @@
 			}
 		}
 		@include adaptiveValue('font-size', 18, 16, 1, 1440, 768);
+		@media (min-width: $tablet) {
+			white-space: nowrap;
+		}
 	}
 	&__social-media {
 		display: flex;

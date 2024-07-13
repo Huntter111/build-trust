@@ -71,7 +71,7 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 		}
 	}
 }
-// Валідація форм
+
 // Валідація форм
 export let formValidate = {
 	getErrors(form) {
@@ -186,9 +186,6 @@ export let formValidate = {
 	emailTest(formRequiredItem) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
 	},
-	// phoneTest(formRequiredItem) {
-	// 	return /^\+38\(0\d{2}\)\s\d{3}-\d{2}-\d{2}$/.test(formRequiredItem.value);
-	// },
 	phoneTest(formRequiredItem) {
 		return (
 			/^\+38\(0\d{2}\)\s\d{3}-\d{2}-\d{2}$/.test(formRequiredItem.value) &&
