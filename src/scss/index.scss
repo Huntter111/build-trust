@@ -1032,6 +1032,11 @@
 	}
 }
 .tooltip {
+	// @media (any-hover: hover) {
+	// 	&:hover {
+	// 		cursor: pointer;
+	// 	}
+	// }
 	&--first {
 	}
 	&--second {
@@ -1039,6 +1044,11 @@
 }
 // ! Це тултіп
 .tooltip-trigger {
+	@media (any-hover: hover) {
+		&:hover {
+			cursor: pointer;
+		}
+	}
 	@media (max-width: $tablet) {
 		img {
 			width: toRem(30);
@@ -1109,6 +1119,7 @@
 	}
 }
 .tooltip-container {
+	// cursor: pointer;
 	position: relative;
 	display: inline-block;
 }

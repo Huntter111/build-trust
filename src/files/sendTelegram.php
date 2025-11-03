@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$message = $_POST["message"];
 
 	// Налаштування Telegram-бота
-	$botToken = "6493891981:AAHWBa2_jA_bprqrdywwK69mxaF1Js_rVXk";
-	$chatId = "-4126213482";
+	$botToken = "";
+	$chatId = "";
 
 	// Формування повідомлення
 	$text = "<b>Нове повідомлення Build Trust</b>\n";
