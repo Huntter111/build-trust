@@ -89,5 +89,8 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"simplebar": "latest"
+	},
+	"volta": {
+		"node": "18.20.8"
 	}
 }
